@@ -78,7 +78,7 @@ deploy:
 # 站内搜索三方服务
 algolia:
   applicationID: MHHHVFT8JS
-  apiKey: 45ae6a60e9fa34d92e6672b83d0fbf95
-  adminApiKey: 4a9662760c8ecab11a85995d801eb8ce
+  apiKey: 1685b7eb71e4e502ddde16c7d9fdd99c
+  adminApiKey: 8ff0509962e9b409a6d7e53e0989f0a1
   indexName: test
   chunkSize: 5000
