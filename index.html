@@ -291,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/20/rotate-picture/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/02/Android-full-screen-theme-for-AppCompat/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bleedyao">
@@ -313,8 +313,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/20/rotate-picture/" itemprop="url">
-                  Android 动画实战-旋转和翻转
+                <a class="post-title-link" href="/2017/08/02/Android-full-screen-theme-for-AppCompat/" itemprop="url">
+                  AppCompat 主题中全屏模式
                 </a>
               
             
@@ -330,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-20T00:00:00+08:00">
-                2017-06-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-02T18:06:28+08:00">
+                2017-08-02
               </time>
             
 
@@ -353,8 +353,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/文章/" itemprop="url" rel="index">
-                    <span itemprop="name">文章</span>
+                  <a href="/categories/参考方案/" itemprop="url" rel="index">
+                    <span itemprop="name">参考方案</span>
                   </a>
                 </span>
 
@@ -370,7 +370,7 @@
 
           
           
-             <span id="/2017/06/20/rotate-picture/" class="leancloud_visitors" data-flag-title="Android 动画实战-旋转和翻转">
+             <span id="/2017/08/02/Android-full-screen-theme-for-AppCompat/" class="leancloud_visitors" data-flag-title="AppCompat 主题中全屏模式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -400,14 +400,668 @@
       
         
           
-            <p>公司提出了一个需求，希望做出一个旋转的动画。完成后，又希望做出翻转的效果，效果见视频所示，视频中是滑动翻转的。</p>
-<center><br><iframe height="480" width="320" src="http://oru6wjbjn.bkt.clouddn.com/rotate_white.mp4"><br></iframe></center>
+            <h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><ul>
+<li>V7 包中我们最常用的 Theme.AppCompat 主题系列中没有全屏模式，在网上查询了一下才得以解决</li>
+</ul>
+<h2 id="参考方案链接"><a href="#参考方案链接" class="headerlink" title="参考方案链接"></a>参考方案链接</h2><p><a href="https://stackoverflow.com/questions/20653305/full-screen-theme-for-appcompat" target="_blank" rel="external"><a href="https://stackoverflow.com/questions/20653305/full-screen-theme-for-appcompat" target="_blank" rel="external">Full Screen Theme for AppCompat</a></a></p>
+<h1 id="参考解决方案"><a href="#参考解决方案" class="headerlink" title="参考解决方案"></a>参考解决方案</h1><p>当你在你的应用中使用 Theme.AppCom （全屏主题），你可以通过添加如下样式的代码使用全屏主题</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;style name="Theme.AppCompat.Light.NoActionBar.FullScreen"</div><div class="line">  				parent="@style/Theme.AppCompat.Light"&gt;</div><div class="line">    &lt;item name="windowNoTitle"&gt;true&lt;/item&gt;</div><div class="line">    &lt;item name="windowActionBar"&gt;false&lt;/item&gt;</div><div class="line">    &lt;item name="android:windowFullscreen"&gt;true&lt;/item&gt;</div><div class="line">    &lt;item name="android:windowContentOverlay"&gt;@null&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>然后在你的的清单文件中显示出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">   android:name=&quot;.activities.FullViewActivity&quot;</div><div class="line">   android:theme=&quot;@style/Theme.AppCompat.Light.NoActionBar.FullScreen&quot; </div><div class="line">/&gt;</div></pre></td></tr></table></figure>
 
-<p>下一个需求是，希望在翻转的时候，内环和外环错开旋转。以视频中显示的效果为例，我称这个翻转方向为逆时针，那么内环需改为顺时针翻转，经 Google 查询无果，恳请大神能指点一二，小弟当感激不尽。</p>
-<h1 id="视频中效果实现的过程"><a href="#视频中效果实现的过程" class="headerlink" title="视频中效果实现的过程"></a>视频中效果实现的过程</h1><ol>
-<li>图片绕中心点旋转：原理是自定义 progressbar，设置 Drawable 资源，很简单。我参考的文章：<a href="http://www.itkeyword.com/doc/2397584331445452x106/progress-android" target="_blank" rel="external">ProgressBar 深入分析</a></li>
-<li>图片翻转效果：我参考了这篇文章：<a href="http://blog.csdn.net/wood12943907/article/details/52190135" target="_blank" rel="external">Android卡牌翻转动画效果实现</a>。使用了 Rotatable 和 nineoldandroids 两个库，也很简单</li>
-</ol>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/28/Android-Testing-Codelab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/28/Android-Testing-Codelab/" itemprop="url">
+                  代码实验室之 Android 测试
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-28T10:29:58+08:00">
+                2017-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Test/" itemprop="url" rel="index">
+                    <span itemprop="name">Android_Test</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/28/Android-Testing-Codelab/" class="leancloud_visitors" data-flag-title="代码实验室之 Android 测试">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>在代码实验室里，你将学到如何开始测试 Android。我们将看到在 Android studio，单元测试，封闭测试和 UI 功能测试测试积分。之后，我们还将通过<strong>Espresso testing framework</strong> 覆盖更多高级技巧。</p>
+<h2 id="我们将学会"><a href="#我们将学会" class="headerlink" title="我们将学会"></a>我们将学会</h2><ul>
+<li>轻量级应用架构设计 —— MVP 设计模式 </li>
+<li>意思用 Gradle 和 Android Studio 运行 Android 测试</li>
+<li>使用 JUnit4 对 Android 编写单元测试</li>
+<li>通过 Espresso 和 Android 测试支持库编写 UI 测试</li>
+<li>一些 Espresso 高级技巧(Espresso-contrib, Espresso-intents and IdlingResources)</li>
+<li>生成代码涉及的报告</li>
+</ul>
+<h2 id="你需要准备什么？"><a href="#你需要准备什么？" class="headerlink" title="你需要准备什么？"></a>你需要准备什么？</h2><ul>
+<li>Android Studio 版本大于2.1</li>
+<li>代码样本</li>
+<li>至少 Android 2.3.3 以后的测试设备或模拟器，</li>
+<li>为你的设备准备一根 USB 接口</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/27/mvp-action/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/27/mvp-action/" itemprop="url">
+                  mvp-action.md
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T14:16:04+08:00">
+                2017-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/27/mvp-action/" class="leancloud_visitors" data-flag-title="mvp-action.md">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="mvp-基本信息"><a href="#mvp-基本信息" class="headerlink" title="mvp 基本信息"></a>mvp 基本信息</h1><ul>
+<li>MVP模式（Model-View-Presenter）可以说是MVC模式（Model-View-Controller）在Android开发上的一种变种和进化模式。后者大家可能比较熟悉，就算不熟悉也可能或多或少地用到过MVC。</li>
+</ul>
+<p><img src="http://otqmfc4ah.bkt.clouddn.com/mpv.jpg" alt="mvp"></p>
+<h1 id="mvp-核心思想"><a href="#mvp-核心思想" class="headerlink" title="mvp 核心思想"></a>mvp 核心思想</h1><ul>
+<li>在 mvp 中，由于业务逻辑堆砌在控制层中，因此代码会显得很臃肿，mvp 的使用可以有效的将控制层削减</li>
+<li>mvp 的核心思想是把 Activity 中的 UI 逻辑抽象成 View 接口，把业务逻辑抽象成 Presenter 接口，Model 类还是原来的 Model。<ul>
+<li>这样的话，Activity的工作的简单了，只用来响应生命周期，其他工作都丢到Presenter中去完成。</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/25/Android-rules/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/25/Android-rules/" itemprop="url">
+                  Android-rules.md
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T09:20:15+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/25/Android-rules/" class="leancloud_visitors" data-flag-title="Android-rules.md">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现代软件架构都需要协同开发完成，高效写作即降低协同成本，提高沟通效率，所谓无规矩不成方圆，无规范不能协同。</p>
+<p>因此代码编写规范尤其重要，本篇文章就是为了规定一份属于自己的 Android 代码规范。</p>
+<h1 id="标识符类型规约"><a href="#标识符类型规约" class="headerlink" title="标识符类型规约"></a>标识符类型规约</h1><h2 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h2><ul>
+<li>包名全部小写，连续的单词只是简单地连接起来，不使用下划线。</li>
+<li>采用反域名命名规则，全部使用小写字母。一级包名为com，二级包名为xx（可以是公司或则个人的随便），三级包名根据应用进行命名，四级包名为模块名或层级名。<br>例如：com.jiashuangkuaizi.kitchen</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>包名</th>
+<th>此包中包含</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>com.xx.应用名称缩写.activity</td>
+<td>页面用到的Activity类 (activitie层级名用户界面层)</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.base</td>
+<td>基础共享的类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.adapter</td>
+<td>页面用到的Adapter类 (适配器的类)</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.util</td>
+<td>此包中包含：公共工具方法类（util模块名）</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.bean</td>
+<td>下面可分：vo、po、dto 此包中包含：JavaBean类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.model</td>
+<td>此包中包含：模型类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.db</td>
+<td>数据库操作类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.view (或者 com.xx.应用名称缩写.widget )</td>
+<td>自定义的View类等</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.service</td>
+<td>Service服务</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.receiver</td>
+<td>BroadcastReceiver服务</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意：<br>如果项目采用MVP，所有M、V、P抽取出来的接口都放置在相应模块的i包下，所有的实现都放置在相应模块的impl下</p>
+</blockquote>
+<h2 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h2><p>类名都以UpperCamelCase风格编写。<br>类名通常是名词或名词短语，接口名称有时可能是形容词或形容词短语。现在还没有特定的规则或行之有效的约定来命名注解类型。<br>名词，采用大驼峰命名法，尽量避免缩写，除非该缩写是众所周知的， 比如HTML,URL，如果类名称中包含单词缩写，则单词缩写的每个字母均应大写。</p>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>描述</th>
+<th>例如</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Activity 类</td>
+<td>Activity为后缀标识</td>
+<td>欢迎页面类WelcomeActivity</td>
+</tr>
+<tr>
+<td>Adapter类</td>
+<td>Adapter 为后缀标识</td>
+<td>新闻详情适配器 NewDetailAdapter</td>
+</tr>
+<tr>
+<td>解析类</td>
+<td>Parser为后缀标识</td>
+<td>首页解析类HomePosterParser</td>
+</tr>
+<tr>
+<td>工具方法类</td>
+<td>Util或Manager为后缀标识（与系统或第三方的Utils区分）或功能+Util</td>
+<td>线程池管理类：              ThreadPoolManager日志工具类：LogUtil（Logger也可）                    打印工具类：PrinterUtil</td>
+</tr>
+<tr>
+<td>数据库类</td>
+<td>以DBHelper后缀标识</td>
+<td>新闻数据库：NewDBHelper</td>
+</tr>
+<tr>
+<td>Service类</td>
+<td>以Service为后缀标识</td>
+<td>时间服务TimeServiceBroadcast</td>
+</tr>
+<tr>
+<td>Receiver类</td>
+<td>以Receiver为后缀标识</td>
+<td>推送接收JPushReceiver</td>
+</tr>
+<tr>
+<td>ContentProvider</td>
+<td>以Provider为后缀标识</td>
+<td></td>
+</tr>
+<tr>
+<td>自定义的共享基础类</td>
+<td>以Base开头</td>
+<td>BaseActivity,BaseFragment</td>
+</tr>
+</tbody>
+</table>
+<p>测试类的命名以它要测试的类的名称开始，以Test结束。<br>例如：HashTest 或 HashIntegrationTest。<br>接口（interface）：命名规则与类一样采用大驼峰命名法，多以able或ible结尾，如<br>interface Runnable;<br>interface Accessible。</p>
+<blockquote>
+<p>注意：<br>如果项目采用MVP，所有Model、View、Presenter的接口都以I为前缀，不加后缀，其他的接口采用上述命名规则。</p>
+</blockquote>
+<h2 id="方法名"><a href="#方法名" class="headerlink" title="方法名"></a>方法名</h2><p>方法名都以 LowerCamelCase 风格编写。<br>方法名通常是动词或动词短语。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initXX()</td>
+<td>初始化相关方法,使用init为前缀标识，如初始化布局initView()</td>
+</tr>
+<tr>
+<td>isXX() checkXX()</td>
+<td>方法返回值为boolean型的请使用is或check为前缀标识</td>
+</tr>
+<tr>
+<td>getXX()</td>
+<td>返回某个值的方法，使用get为前缀标识</td>
+</tr>
+<tr>
+<td>handleXX()</td>
+<td>对数据进行处理的方法，尽量使用handle为前缀标识</td>
+</tr>
+<tr>
+<td>displayXX()/showXX()</td>
+<td>弹出提示框和提示信息，使用display/show为前缀标识</td>
+</tr>
+<tr>
+<td>saveXX()</td>
+<td>与保存数据相关的，使用save为前缀标识</td>
+</tr>
+<tr>
+<td>resetXX()</td>
+<td>对数据重组的，使用reset前缀标识</td>
+</tr>
+<tr>
+<td>clearXX()</td>
+<td>清除数据相关的</td>
+</tr>
+<tr>
+<td>removeXXX()</td>
+<td>清除数据相关的</td>
+</tr>
+<tr>
+<td>drawXXX()</td>
+<td>绘制数据或效果相关的，使用draw前缀标识</td>
+</tr>
+</tbody>
+</table>
+<p>下划线可能出现在JUnit测试方法名称中用以分隔名称的逻辑组件。一个典型的模式是：test_，例如testPop_emptyStack。<br>并不存在唯一正确的方式来命名测试方法。</p>
 
           
         
@@ -1238,7 +1892,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1249,7 +1903,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -1260,7 +1914,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
