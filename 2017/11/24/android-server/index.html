@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/11/24/android-server/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
 <meta property="og:description" content="清晰地理解 Service1.Service的start和bind状态有什么区别？startService()，开启一个服务，服务回调onStartCommand()，其他组件的数据可以在服务中执行，但不可与服务交互。 bindService()，绑定一个服务，服务回调bindService()，该回调返回IBind对象，通过这一对象，其他组件可以和服务进行交互。 2. 同一个Service，先s">
-<meta property="og:updated_time" content="2017-11-24T13:54:02.152Z">
+<meta property="og:updated_time" content="2017-11-25T00:30:37.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="清晰地理解 Service">
 <meta name="twitter:description" content="清晰地理解 Service1.Service的start和bind状态有什么区别？startService()，开启一个服务，服务回调onStartCommand()，其他组件的数据可以在服务中执行，但不可与服务交互。 bindService()，绑定一个服务，服务回调bindService()，该回调返回IBind对象，通过这一对象，其他组件可以和服务进行交互。 2. 同一个Service，先s">
@@ -375,12 +375,18 @@
       
         <h1 id="清晰地理解-Service"><a href="#清晰地理解-Service" class="headerlink" title="清晰地理解 Service"></a>清晰地理解 Service</h1><h2 id="1-Service的start和bind状态有什么区别？"><a href="#1-Service的start和bind状态有什么区别？" class="headerlink" title="1.Service的start和bind状态有什么区别？"></a>1.Service的start和bind状态有什么区别？</h2><p><code>startService()</code>，开启一个服务，服务回调<code>onStartCommand()</code>，其他组件的数据可以在服务中执行，但不可与服务交互。</p>
 <p><code>bindService()</code>，绑定一个服务，服务回调<code>bindService()</code>，该回调返回IBind对象，通过这一对象，其他组件可以和服务进行交互。</p>
-<h2 id="2-同一个Service，先startService，然后再bindService，如何把它停止掉？"><a href="#2-同一个Service，先startService，然后再bindService，如何把它停止掉？" class="headerlink" title="2. 同一个Service，先startService，然后再bindService，如何把它停止掉？"></a>2. 同一个Service，先startService，然后再bindService，如何把它停止掉？</h2><p><code>startService</code>开启服务，当Service执行完以后，需调用<code>stopSelf()</code> 或 <code>stopService()</code>方法停止Service。</p>
-<p><code>bindService</code>绑定服务，当Service不再与组件绑定时，该Service将被destroy。</p>
+<h2 id="2-同一个Service，先startService，然后再bindService，如何把它停止掉？"><a href="#2-同一个Service，先startService，然后再bindService，如何把它停止掉？" class="headerlink" title="2. 同一个Service，先startService，然后再bindService，如何把它停止掉？"></a>2. 同一个Service，先startService，然后再bindService，如何把它停止掉？</h2><p><del>startService开启服务，当Service执行完以后，需调用<code>stopSelf()</code> 或 <code>stopService()</code>方法停止Service。</del></p>
+<p><del>bindService`绑定服务，当Service不再与组件绑定时，该Service将被destroy。</del> </p>
+<p>startService —&gt; bindService —&gt; unbindService —&gt; stopService</p>
 <h2 id="3-你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？"><a href="#3-你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？" class="headerlink" title="3. 你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？"></a>3. 你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？</h2><ul>
-<li><a href="https://developer.android.com/reference/android/app/Service.html#START_NOT_STICKY" target="_blank" rel="external"><code>START_NOT_STICKY</code></a>：若执行完<code>onStartCommand()</code>方法后，系统就kill了service，不要再重新创建service，除非系统回传了一个pending intent。这避免了在不必要的时候运行service，您的应用也可以restart任何未完成的操作。</li>
-<li><a href="https://developer.android.com/reference/android/app/Service.html#START_STICKY" target="_blank" rel="external"><code>START_STICKY</code></a>：若系统在<code>onStartCommand()</code>执行并返回后kill了service，那么service会被recreate并回调<code>onStartCommand()</code>。dangerous不要重新传递最后一个Intent（do not redeliver the last intent）。相反，系统回调<code>onStartCommand()</code>时回传一个空的Intent，除非有 pending intents传递，否则Intent将为null。该模式适合做一些类似播放音乐的操作。</li>
-<li><a href="https://developer.android.com/reference/android/app/Service.html#START_REDELIVER_INTENT" target="_blank" rel="external"><code>START_REDELIVER_INTENT</code></a>：若系统在<code>onStartCommand()</code>执行并返回后kill了service，那么service会被recreate并回调<code>onStartCommand()</code>并将最后一个Intent回传至该方法。任何 pending intents都会被轮流传递。该模式适合做一些类似下载文件的操作。</li>
+<li><p><code>START_NOT_STICKY</code>：若执行完<code>onStartCommand()</code>方法后，系统就kill了service，不要再重新创建service，除非系统回传了一个pending intent。这避免了在不必要的时候运行service，您的应用也可以restart任何未完成的操作。</p>
+</li>
+<li><p><code>START_STICKY</code>：若系统在<code>onStartCommand()</code>执行并返回后kill了service，那么service会被recreate并回调<code>onStartCommand()</code>。dangerous不要重新传递最后一个Intent（do not redeliver the last intent）。相反，系统回调<code>onStartCommand()</code>时回传一个空的Intent，除非有 pending intents传递，否则Intent将为null。该模式适合做一些类似播放音乐的操作。</p>
+</li>
+<li><p><code>START_REDELIVER_INTENT</code>：若系统在<code>onStartCommand()</code>执行并返回后kill了service，那么service会被recreate并回调<code>onStartCommand()</code>并将最后一个Intent回传至该方法。任何 pending intents都会被轮流传递。该模式适合做一些类似下载文件的操作。</p>
+</li>
+<li><p><code>START_STICKY_COMPATIBILITY</code><br>START_STICKY的兼容版本，但不保证服务被kill后一定能重启。<br>而输入参数flags正是代表此次<code>onStartCommand()</code>方法的启动方式，正常启动时，flags默认为0，被kill后重新启动，参数分为以下两种</p>
+</li>
 </ul>
 <h2 id="4-Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？"><a href="#4-Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？" class="headerlink" title="4. Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？"></a>4. Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？</h2><p>Service 运行在主线程当中，不是在新的线程，也不再新的进程，因此我认为Service的这三个方法都运行在主线程中。</p>
 
