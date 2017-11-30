@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content=",,," />
 
 
 
@@ -90,15 +90,19 @@
 
 
 
-<meta name="description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta name="description" content="mvp 基本信息 MVP模式（Model-View-Presenter）可以说是MVC模式（Model-View-Controller）在Android开发上的一种变种和进化模式。后者大家可能比较熟悉，就算不熟悉也可能或多或少地用到过MVC。   mvp 核心思想 在 mvp 中，由于业务逻辑堆砌在控制层中，因此代码会显得很臃肿，mvp 的使用可以有效的将控制层削减 mvp 的核心思想是把 Act">
+<meta name="keywords" content="mvp">
 <meta property="og:type" content="website">
-<meta property="og:title" content="姚陆浩的博客">
-<meta property="og:url" content="http://yoursite.com/categories/文章/index.html">
+<meta property="og:title" content="mvp-action.md">
+<meta property="og:url" content="http://yoursite.com/article/mvp-action.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta property="og:description" content="mvp 基本信息 MVP模式（Model-View-Presenter）可以说是MVC模式（Model-View-Controller）在Android开发上的一种变种和进化模式。后者大家可能比较熟悉，就算不熟悉也可能或多或少地用到过MVC。   mvp 核心思想 在 mvp 中，由于业务逻辑堆砌在控制层中，因此代码会显得很臃肿，mvp 的使用可以有效的将控制层削减 mvp 的核心思想是把 Act">
+<meta property="og:image" content="http://otqmfc4ah.bkt.clouddn.com/mpv.jpg">
+<meta property="og:updated_time" content="2017-07-27T07:17:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="姚陆浩的博客">
-<meta name="twitter:description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta name="twitter:title" content="mvp-action.md">
+<meta name="twitter:description" content="mvp 基本信息 MVP模式（Model-View-Presenter）可以说是MVC模式（Model-View-Controller）在Android开发上的一种变种和进化模式。后者大家可能比较熟悉，就算不熟悉也可能或多或少地用到过MVC。   mvp 核心思想 在 mvp 中，由于业务逻辑堆砌在控制层中，因此代码会显得很臃肿，mvp 的使用可以有效的将控制层削减 mvp 的核心思想是把 Act">
+<meta name="twitter:image" content="http://otqmfc4ah.bkt.clouddn.com/mpv.jpg">
 
 
 
@@ -126,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/文章/"/>
+  <link rel="canonical" href="http://yoursite.com/article/mvp-action.html"/>
 
 
 
 
 
-  <title>分类: 文章 | 姚陆浩的博客</title>
+  <title>mvp-action.md | 姚陆浩的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,75 +283,31 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        文章
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+  <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">mvp-action.md</h1>
+
+
+
+</header>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/09/build-personal-blog/" itemprop="url">
-              
-                <span itemprop="name">hexo + Next 搭建个人博客(仿)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-09T19:31:25+08:00"
-              content="2017-04-09" >
-          04-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+    
+      <h1 id="mvp-基本信息"><a href="#mvp-基本信息" class="headerlink" title="mvp 基本信息"></a>mvp 基本信息</h1><ul>
+<li>MVP模式（Model-View-Presenter）可以说是MVC模式（Model-View-Controller）在Android开发上的一种变种和进化模式。后者大家可能比较熟悉，就算不熟悉也可能或多或少地用到过MVC。</li>
+</ul>
+<p><img src="http://otqmfc4ah.bkt.clouddn.com/mpv.jpg" alt="mvp"></p>
+<h1 id="mvp-核心思想"><a href="#mvp-核心思想" class="headerlink" title="mvp 核心思想"></a>mvp 核心思想</h1><ul>
+<li>在 mvp 中，由于业务逻辑堆砌在控制层中，因此代码会显得很臃肿，mvp 的使用可以有效的将控制层削减</li>
+<li>mvp 的核心思想是把 Activity 中的 UI 逻辑抽象成 View 接口，把业务逻辑抽象成 Presenter 接口，Model 类还是原来的 Model。<ul>
+<li>这样的话，Activity的工作的简单了，只用来响应生命周期，其他工作都丢到Presenter中去完成。</li>
+</ul>
+</li>
+</ul>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/28/source-in-the-net/" itemprop="url">
-              
-                <span itemprop="name">网络资源收集及分类</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-28T00:00:00+08:00"
-              content="2017-03-28" >
-          03-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
-
-  
-
+  </div>
 
 
           </div>
@@ -355,6 +315,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         

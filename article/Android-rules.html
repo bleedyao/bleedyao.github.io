@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content=",," />
 
 
 
@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta name="description" content="前言现代软件架构都需要协同开发完成，高效写作即降低协同成本，提高沟通效率，所谓无规矩不成方圆，无规范不能协同。 因此代码编写规范尤其重要，本篇文章就是为了规定一份属于自己的 Android 代码规范。 标识符类型规约包名 包名全部小写，连续的单词只是简单地连接起来，不使用下划线。 采用反域名命名规则，全部使用小写字母。一级包名为com，二级包名为xx（可以是公司或则个人的随便），三级包名根据应用进">
+<meta name="keywords" content="规范">
 <meta property="og:type" content="website">
-<meta property="og:title" content="姚陆浩的博客">
-<meta property="og:url" content="http://yoursite.com/categories/文章/index.html">
+<meta property="og:title" content="Android-rules.md">
+<meta property="og:url" content="http://yoursite.com/article/Android-rules.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta property="og:description" content="前言现代软件架构都需要协同开发完成，高效写作即降低协同成本，提高沟通效率，所谓无规矩不成方圆，无规范不能协同。 因此代码编写规范尤其重要，本篇文章就是为了规定一份属于自己的 Android 代码规范。 标识符类型规约包名 包名全部小写，连续的单词只是简单地连接起来，不使用下划线。 采用反域名命名规则，全部使用小写字母。一级包名为com，二级包名为xx（可以是公司或则个人的随便），三级包名根据应用进">
+<meta property="og:updated_time" content="2017-08-13T14:33:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="姚陆浩的博客">
-<meta name="twitter:description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta name="twitter:title" content="Android-rules.md">
+<meta name="twitter:description" content="前言现代软件架构都需要协同开发完成，高效写作即降低协同成本，提高沟通效率，所谓无规矩不成方圆，无规范不能协同。 因此代码编写规范尤其重要，本篇文章就是为了规定一份属于自己的 Android 代码规范。 标识符类型规约包名 包名全部小写，连续的单词只是简单地连接起来，不使用下划线。 采用反域名命名规则，全部使用小写字母。一级包名为com，二级包名为xx（可以是公司或则个人的随便），三级包名根据应用进">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/文章/"/>
+  <link rel="canonical" href="http://yoursite.com/article/Android-rules.html"/>
 
 
 
 
 
-  <title>分类: 文章 | 姚陆浩的博客</title>
+  <title>Android-rules.md | 姚陆浩的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,75 +281,193 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        文章
-        <small>分类</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+  <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">Android-rules.md</h1>
+
+
+
+</header>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/09/build-personal-blog/" itemprop="url">
-              
-                <span itemprop="name">hexo + Next 搭建个人博客(仿)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-09T19:31:25+08:00"
-              content="2017-04-09" >
-          04-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+    
+      <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现代软件架构都需要协同开发完成，高效写作即降低协同成本，提高沟通效率，所谓无规矩不成方圆，无规范不能协同。</p>
+<p>因此代码编写规范尤其重要，本篇文章就是为了规定一份属于自己的 Android 代码规范。</p>
+<h1 id="标识符类型规约"><a href="#标识符类型规约" class="headerlink" title="标识符类型规约"></a>标识符类型规约</h1><h2 id="包名"><a href="#包名" class="headerlink" title="包名"></a>包名</h2><ul>
+<li>包名全部小写，连续的单词只是简单地连接起来，不使用下划线。</li>
+<li>采用反域名命名规则，全部使用小写字母。一级包名为com，二级包名为xx（可以是公司或则个人的随便），三级包名根据应用进行命名，四级包名为模块名或层级名。<br>例如：com.jiashuangkuaizi.kitchen</li>
+</ul>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th>包名</th>
+<th>此包中包含</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>com.xx.应用名称缩写.activity</td>
+<td>页面用到的Activity类 (activitie层级名用户界面层)</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.base</td>
+<td>基础共享的类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.adapter</td>
+<td>页面用到的Adapter类 (适配器的类)</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.util</td>
+<td>此包中包含：公共工具方法类（util模块名）</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.bean</td>
+<td>下面可分：vo、po、dto 此包中包含：JavaBean类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.model</td>
+<td>此包中包含：模型类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.db</td>
+<td>数据库操作类</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.view (或者 com.xx.应用名称缩写.widget )</td>
+<td>自定义的View类等</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.service</td>
+<td>Service服务</td>
+</tr>
+<tr>
+<td>com.xx.应用名称缩写.receiver</td>
+<td>BroadcastReceiver服务</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意：<br>如果项目采用MVP，所有M、V、P抽取出来的接口都放置在相应模块的i包下，所有的实现都放置在相应模块的impl下</p>
+</blockquote>
+<h2 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h2><p>类名都以UpperCamelCase风格编写。<br>类名通常是名词或名词短语，接口名称有时可能是形容词或形容词短语。现在还没有特定的规则或行之有效的约定来命名注解类型。<br>名词，采用大驼峰命名法，尽量避免缩写，除非该缩写是众所周知的， 比如HTML,URL，如果类名称中包含单词缩写，则单词缩写的每个字母均应大写。</p>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>描述</th>
+<th>例如</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Activity 类</td>
+<td>Activity为后缀标识</td>
+<td>欢迎页面类WelcomeActivity</td>
+</tr>
+<tr>
+<td>Adapter类</td>
+<td>Adapter 为后缀标识</td>
+<td>新闻详情适配器 NewDetailAdapter</td>
+</tr>
+<tr>
+<td>解析类</td>
+<td>Parser为后缀标识</td>
+<td>首页解析类HomePosterParser</td>
+</tr>
+<tr>
+<td>工具方法类</td>
+<td>Util或Manager为后缀标识（与系统或第三方的Utils区分）或功能+Util</td>
+<td>线程池管理类：              ThreadPoolManager日志工具类：LogUtil（Logger也可）                    打印工具类：PrinterUtil</td>
+</tr>
+<tr>
+<td>数据库类</td>
+<td>以DBHelper后缀标识</td>
+<td>新闻数据库：NewDBHelper</td>
+</tr>
+<tr>
+<td>Service类</td>
+<td>以Service为后缀标识</td>
+<td>时间服务TimeServiceBroadcast</td>
+</tr>
+<tr>
+<td>Receiver类</td>
+<td>以Receiver为后缀标识</td>
+<td>推送接收JPushReceiver</td>
+</tr>
+<tr>
+<td>ContentProvider</td>
+<td>以Provider为后缀标识</td>
+<td></td>
+</tr>
+<tr>
+<td>自定义的共享基础类</td>
+<td>以Base开头</td>
+<td>BaseActivity,BaseFragment</td>
+</tr>
+</tbody>
+</table>
+<p>测试类的命名以它要测试的类的名称开始，以Test结束。<br>例如：HashTest 或 HashIntegrationTest。<br>接口（interface）：命名规则与类一样采用大驼峰命名法，多以able或ible结尾，如<br>interface Runnable;<br>interface Accessible。</p>
+<blockquote>
+<p>注意：<br>如果项目采用MVP，所有Model、View、Presenter的接口都以I为前缀，不加后缀，其他的接口采用上述命名规则。</p>
+</blockquote>
+<h2 id="方法名"><a href="#方法名" class="headerlink" title="方法名"></a>方法名</h2><p>方法名都以 LowerCamelCase 风格编写。<br>方法名通常是动词或动词短语。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initXX()</td>
+<td>初始化相关方法,使用init为前缀标识，如初始化布局initView()</td>
+</tr>
+<tr>
+<td>isXX() checkXX()</td>
+<td>方法返回值为boolean型的请使用is或check为前缀标识</td>
+</tr>
+<tr>
+<td>getXX()</td>
+<td>返回某个值的方法，使用get为前缀标识</td>
+</tr>
+<tr>
+<td>handleXX()</td>
+<td>对数据进行处理的方法，尽量使用handle为前缀标识</td>
+</tr>
+<tr>
+<td>displayXX()/showXX()</td>
+<td>弹出提示框和提示信息，使用display/show为前缀标识</td>
+</tr>
+<tr>
+<td>saveXX()</td>
+<td>与保存数据相关的，使用save为前缀标识</td>
+</tr>
+<tr>
+<td>resetXX()</td>
+<td>对数据重组的，使用reset前缀标识</td>
+</tr>
+<tr>
+<td>clearXX()</td>
+<td>清除数据相关的</td>
+</tr>
+<tr>
+<td>removeXXX()</td>
+<td>清除数据相关的</td>
+</tr>
+<tr>
+<td>drawXXX()</td>
+<td>绘制数据或效果相关的，使用draw前缀标识</td>
+</tr>
+</tbody>
+</table>
+<p>下划线可能出现在JUnit测试方法名称中用以分隔名称的逻辑组件。一个典型的模式是：test_，例如testPop_emptyStack。<br>并不存在唯一正确的方式来命名测试方法。</p>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/28/source-in-the-net/" itemprop="url">
-              
-                <span itemprop="name">网络资源收集及分类</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-28T00:00:00+08:00"
-              content="2017-03-28" >
-          03-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
-
-  
-
+  </div>
 
 
           </div>
@@ -355,6 +475,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
