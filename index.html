@@ -291,6 +291,474 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/about-startActivityForResult/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/05/about-startActivityForResult/" itemprop="url">
+                  关于 startActivityForResult
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T16:57:22+08:00">
+                2017-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/第四周/" itemprop="url" rel="index">
+                    <span itemprop="name">第四周</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/05/about-startActivityForResult/" class="leancloud_visitors" data-flag-title="关于 startActivityForResult">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？"><a href="#1-startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？" class="headerlink" title="1. startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？"></a>1. startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？</h1><ul>
+<li>场景：如果你希望启动另一个 Activity 并接受返回的结果，需要调用 startActivityForResult() 方法。例如：你启动照相应用并需要接收拍摄的照片最为结果；你启动联系人应用并需要接收联系人详情信息最为结果。</li>
+<li>requestCode：当你想启动一个带有返回结果的 Activity 的时候，你需要传递额外的参数，这就是调用 startActivityForResult() 时，需要传递的 requestCode —— 请求码，该参数用于识别的你的请求的请求码。当你收到 Intent 结果是，回调会提供相同的请求码，以便你的应用可以正确识别结果并确定如何处理它。</li>
+<li>resultCode：当用户完成后续 Activity 并返回时，系统会调用你的 Activity 的 onActivityResult() 方法，该方法包括三个参数，其中一个就是 resultCode —— 结果码。如果操作成功，结果是 RESULT_OK；如果用户退出或操作处于某种原因失败，则结果是 RESULT_CANCELED。</li>
+</ul>
+<h1 id="2、Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？"><a href="#2、Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？" class="headerlink" title="2、Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？"></a>2、Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？</h1><ul>
+<li>当 Activity 存在时，它为了返回数据给调用它的 Activity，可以调用 setResult() 方法。这个参数必须是系统所支持的结果码，它可以是标准的结果码，RESULT_CANCELED, RESULT_OK，或者任何自定义的从 RESULT_FIRST_USER（这个值是 1，也就是说可以自定义大于 1 的任何 int 类型的数）开始的值。此外，这个方法（setResult()）可以选择一个包含任何它想要的数据的 Intent 对象返回。所有这些信息返回给调用它的 Activity 的 onActivityResult() 方法中，以及它最初传递过来的值（请求码）。</li>
+<li>可以通过源码解释第二个问题，以下是 Activity 源码摘要 </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DONT_FINISH_TASK_WITH_ACTIVITY = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">finish</span><span class="params">()</span> </span>&#123;</div><div class="line">    finish(DONT_FINISH_TASK_WITH_ACTIVITY);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">finish</span><span class="params">(<span class="keyword">int</span> finishTask)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (mParent == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">int</span> resultCode;</div><div class="line">        Intent resultData;</div><div class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</div><div class="line">            resultCode = mResultCode;</div><div class="line">            resultData = mResultData;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">false</span>) Log.v(TAG, <span class="string">"Finishing self: token="</span> + mToken);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">if</span> (resultData != <span class="keyword">null</span>) &#123;</div><div class="line">                resultData.prepareToLeaveProcess(<span class="keyword">this</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (ActivityManager.getService()</div><div class="line">                .finishActivity(mToken, resultCode, resultData, finishTask))&#123;</div><div class="line">                mFinished = <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</div><div class="line">            <span class="comment">// Empty</span></div><div class="line">        &#125;</div><div class="line">     &#125; <span class="keyword">else</span> &#123;</div><div class="line">      mParent.finishFromChild(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上是摘要了 Activity 的 finish() 和它的重载的方法。在带参数的方法中，可以看到如下代码段：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</div><div class="line">		 resultCode = mResultCode;</div><div class="line">		 resultData = mResultData;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这段代码说明了，Activity 在关闭自己之前会将结果码和返回参数赋值，之后结束自己并返回，结果码初始值为 0，对应的是 RESULT_CANCELED 的值，因此，在 finish() 方法后再设置结果码，显然是不行的，如果如此做，调用方会收到失败的结果（RESULT_CANCELED）。</p>
+<p>结论：setResult() 方法不能再 finish() 方法后调用。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/what-is-the-machine-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/02/what-is-the-machine-learning/" itemprop="url">
+                  什么是机器学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T14:12:45+08:00">
+                2017-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/02/what-is-the-machine-learning/" class="leancloud_visitors" data-flag-title="什么是机器学习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。</p>
+<p>关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。</p>
+<h1 id="阅读内容"><a href="#阅读内容" class="headerlink" title="阅读内容"></a>阅读内容</h1><p>我是本周二拿到《白话深度学习与 TensorFlow》这本书，这个礼拜，我把前言和第一章认真的看完了，感觉这本书白话二字用的很好，书中列举的很多生活中的例子来类比一些比较难懂的概念，还列举了人工智能在生活中的一些好玩和使用的功能，让我们平缓的走入人工智能领域。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/02/what-is-the-machine-learning/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/activity-launch-mode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/30/activity-launch-mode/" itemprop="url">
+                  activity 启动模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T17:11:18+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/第三周/" itemprop="url" rel="index">
+                    <span itemprop="name">第三周</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/11/30/activity-launch-mode/" class="leancloud_visitors" data-flag-title="activity 启动模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="1-Activity-的启动模式有哪几种，分别用于什么场景？"><a href="#1-Activity-的启动模式有哪几种，分别用于什么场景？" class="headerlink" title="1. Activity 的启动模式有哪几种，分别用于什么场景？"></a>1. Activity 的启动模式有哪几种，分别用于什么场景？</h1><p>目前有四种启动模式：standard（标准模式）、singleTop（栈顶单例模式）、singleTask（栈内单例模式）、singleInstance（单独任务栈模式）。</p>
+<p>应用场景：</p>
+<ul>
+<li>standard：Activity 默认使用的是 standard，一般配置界面使用这种模式</li>
+<li>singleTop：在任务栈内开启此模式下的 Activity，会进入栈顶，不会创建新的 Activity 实例。适合接收通知启动的内容显示页面。例如，某个新闻客户端的新闻内容页面，如果收到10个新闻推送，每次都打开一个新闻内容页面是很烦人的，这样的话可以从外界可能多次跳转到一个界面。</li>
+<li>singleTask：在任务栈内开启此模式下的 Activity，会 kill 掉此 Activity 上边的所有实例并进入栈顶。此模式的 Activity 适用于程序入口点，比如，我的实际应用中，程序开启后监听 usb 的状态，如果有 usb 设备挂载，程序会询问是否开启这个程序，点击是，会重新开启此程序，此时程序会有两个首页在运行，而我们有一个入口就可以了，所以可以采用 singleTask 。</li>
+<li>singleInstance：在任务栈内开启此模式下的 Activity，会创建一个新的任务栈，这个任务栈中只有此模式下的 Activity 。在做一些特殊场景下的应用，比如Launcher的主屏时，可能会使用得到。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/activity-launch-mode/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/30/define-the-number-of-version/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -504,6 +972,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/第二周/" itemprop="url" rel="index">
+                    <span itemprop="name">第二周</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -540,25 +1030,18 @@
 
       
         
-          
-            <h1 id="清晰地理解-Service"><a href="#清晰地理解-Service" class="headerlink" title="清晰地理解 Service"></a>清晰地理解 Service</h1><h2 id="1-Service的start和bind状态有什么区别？"><a href="#1-Service的start和bind状态有什么区别？" class="headerlink" title="1.Service的start和bind状态有什么区别？"></a>1.Service的start和bind状态有什么区别？</h2><p><code>startService()</code>，开启一个服务，服务回调<code>onStartCommand()</code>，其他组件的数据可以在服务中执行，但不可与服务交互。</p>
+          <h1 id="清晰地理解-Service"><a href="#清晰地理解-Service" class="headerlink" title="清晰地理解 Service"></a>清晰地理解 Service</h1><h2 id="1-Service的start和bind状态有什么区别？"><a href="#1-Service的start和bind状态有什么区别？" class="headerlink" title="1.Service的start和bind状态有什么区别？"></a>1.Service的start和bind状态有什么区别？</h2><p><code>startService()</code>，开启一个服务，服务回调<code>onStartCommand()</code>，其他组件的数据可以在服务中执行，但不可与服务交互。</p>
 <p><code>bindService()</code>，绑定一个服务，服务回调<code>bindService()</code>，该回调返回IBind对象，通过这一对象，其他组件可以和服务进行交互。</p>
 <h2 id="2-同一个Service，先startService，然后再bindService，如何把它停止掉？"><a href="#2-同一个Service，先startService，然后再bindService，如何把它停止掉？" class="headerlink" title="2. 同一个Service，先startService，然后再bindService，如何把它停止掉？"></a>2. 同一个Service，先startService，然后再bindService，如何把它停止掉？</h2><p><del>startService开启服务，当Service执行完以后，需调用<code>stopSelf()</code> 或 <code>stopService()</code>方法停止Service。</del></p>
 <p><del>bindService`绑定服务，当Service不再与组件绑定时，该Service将被destroy。</del> </p>
 <p>startService —&gt; bindService —&gt; unbindService —&gt; stopService</p>
-<h2 id="3-你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？"><a href="#3-你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？" class="headerlink" title="3. 你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？"></a>3. 你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？</h2><ul>
-<li><p><code>START_NOT_STICKY</code>：若执行完<code>onStartCommand()</code>方法后，系统就kill了service，不要再重新创建service，除非系统回传了一个pending intent。这避免了在不必要的时候运行service，您的应用也可以restart任何未完成的操作。</p>
-</li>
-<li><p><code>START_STICKY</code>：若系统在<code>onStartCommand()</code>执行并返回后kill了service，那么service会被recreate并回调<code>onStartCommand()</code>。dangerous不要重新传递最后一个Intent（do not redeliver the last intent）。相反，系统回调<code>onStartCommand()</code>时回传一个空的Intent，除非有 pending intents传递，否则Intent将为null。该模式适合做一些类似播放音乐的操作。</p>
-</li>
-<li><p><code>START_REDELIVER_INTENT</code>：若系统在<code>onStartCommand()</code>执行并返回后kill了service，那么service会被recreate并回调<code>onStartCommand()</code>并将最后一个Intent回传至该方法。任何 pending intents都会被轮流传递。该模式适合做一些类似下载文件的操作。</p>
-</li>
-<li><p><code>START_STICKY_COMPATIBILITY</code><br>START_STICKY的兼容版本，但不保证服务被kill后一定能重启。<br>而输入参数flags正是代表此次<code>onStartCommand()</code>方法的启动方式，正常启动时，flags默认为0，被kill后重新启动，参数分为以下两种</p>
-</li>
-</ul>
-<h2 id="4-Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？"><a href="#4-Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？" class="headerlink" title="4. Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？"></a>4. Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？</h2><p>Service 运行在主线程当中，不是在新的线程，也不再新的进程，因此我认为Service的这三个方法都运行在主线程中。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/24/android-server/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1256,7 +1739,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1267,7 +1750,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -1278,7 +1761,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

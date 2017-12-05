@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android 学习计划," />
+  <meta name="keywords" content="深度学习," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="清晰地理解 Service1.Service的start和bind状态有什么区别？startService()，开启一个服务，服务回调onStartCommand()，其他组件的数据可以在服务中执行，但不可与服务交互。 bindService()，绑定一个服务，服务回调bindService()，该回调返回IBind对象，通过这一对象，其他组件可以和服务进行交互。 2. 同一个Service，先s">
-<meta name="keywords" content="Android 学习计划">
+<meta name="description" content="本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。 关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。 阅读内容我是本周二拿到《">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="清晰地理解 Service">
-<meta property="og:url" content="http://yoursite.com/2017/11/24/android-server/index.html">
+<meta property="og:title" content="什么是机器学习">
+<meta property="og:url" content="http://yoursite.com/2017/12/02/what-is-the-machine-learning/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="清晰地理解 Service1.Service的start和bind状态有什么区别？startService()，开启一个服务，服务回调onStartCommand()，其他组件的数据可以在服务中执行，但不可与服务交互。 bindService()，绑定一个服务，服务回调bindService()，该回调返回IBind对象，通过这一对象，其他组件可以和服务进行交互。 2. 同一个Service，先s">
-<meta property="og:updated_time" content="2017-12-05T09:07:24.502Z">
+<meta property="og:description" content="本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。 关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。 阅读内容我是本周二拿到《">
+<meta property="og:updated_time" content="2017-12-05T09:06:10.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="清晰地理解 Service">
-<meta name="twitter:description" content="清晰地理解 Service1.Service的start和bind状态有什么区别？startService()，开启一个服务，服务回调onStartCommand()，其他组件的数据可以在服务中执行，但不可与服务交互。 bindService()，绑定一个服务，服务回调bindService()，该回调返回IBind对象，通过这一对象，其他组件可以和服务进行交互。 2. 同一个Service，先s">
+<meta name="twitter:title" content="什么是机器学习">
+<meta name="twitter:description" content="本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。 关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。 阅读内容我是本周二拿到《">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/24/android-server/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/02/what-is-the-machine-learning/"/>
 
 
 
 
 
-  <title>清晰地理解 Service | 姚陆浩的博客</title>
+  <title>什么是机器学习 | 姚陆浩的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/24/android-server/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/what-is-the-machine-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bleedyao">
@@ -312,7 +312,7 @@
             
             
               
-                清晰地理解 Service
+                什么是机器学习
               
             
           </h1>
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-24T21:30:54+08:00">
-                2017-11-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T14:12:45+08:00">
+                2017-12-02
               </time>
             
 
@@ -338,28 +338,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/第二周/" itemprop="url" rel="index">
-                    <span itemprop="name">第二周</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -367,7 +345,7 @@
 
           
           
-             <span id="/2017/11/24/android-server/" class="leancloud_visitors" data-flag-title="清晰地理解 Service">
+             <span id="/2017/12/02/what-is-the-machine-learning/" class="leancloud_visitors" data-flag-title="什么是机器学习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -395,23 +373,62 @@
       
 
       
-        <h1 id="清晰地理解-Service"><a href="#清晰地理解-Service" class="headerlink" title="清晰地理解 Service"></a>清晰地理解 Service</h1><h2 id="1-Service的start和bind状态有什么区别？"><a href="#1-Service的start和bind状态有什么区别？" class="headerlink" title="1.Service的start和bind状态有什么区别？"></a>1.Service的start和bind状态有什么区别？</h2><p><code>startService()</code>，开启一个服务，服务回调<code>onStartCommand()</code>，其他组件的数据可以在服务中执行，但不可与服务交互。</p>
-<p><code>bindService()</code>，绑定一个服务，服务回调<code>bindService()</code>，该回调返回IBind对象，通过这一对象，其他组件可以和服务进行交互。</p>
-<h2 id="2-同一个Service，先startService，然后再bindService，如何把它停止掉？"><a href="#2-同一个Service，先startService，然后再bindService，如何把它停止掉？" class="headerlink" title="2. 同一个Service，先startService，然后再bindService，如何把它停止掉？"></a>2. 同一个Service，先startService，然后再bindService，如何把它停止掉？</h2><p><del>startService开启服务，当Service执行完以后，需调用<code>stopSelf()</code> 或 <code>stopService()</code>方法停止Service。</del></p>
-<p><del>bindService`绑定服务，当Service不再与组件绑定时，该Service将被destroy。</del> </p>
-<p>startService —&gt; bindService —&gt; unbindService —&gt; stopService</p>
+        <p>本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。</p>
+<p>关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。</p>
+<h1 id="阅读内容"><a href="#阅读内容" class="headerlink" title="阅读内容"></a>阅读内容</h1><p>我是本周二拿到《白话深度学习与 TensorFlow》这本书，这个礼拜，我把前言和第一章认真的看完了，感觉这本书白话二字用的很好，书中列举的很多生活中的例子来类比一些比较难懂的概念，还列举了人工智能在生活中的一些好玩和使用的功能，让我们平缓的走入人工智能领域。</p>
 <a id="more"></a>
-<h2 id="3-你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？"><a href="#3-你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？" class="headerlink" title="3. 你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？"></a>3. 你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？</h2><ul>
-<li><p><code>START_NOT_STICKY</code>：若执行完<code>onStartCommand()</code>方法后，系统就kill了service，不要再重新创建service，除非系统回传了一个pending intent。这避免了在不必要的时候运行service，您的应用也可以restart任何未完成的操作。</p>
-</li>
-<li><p><code>START_STICKY</code>：若系统在<code>onStartCommand()</code>执行并返回后kill了service，那么service会被recreate并回调<code>onStartCommand()</code>。dangerous不要重新传递最后一个Intent（do not redeliver the last intent）。相反，系统回调<code>onStartCommand()</code>时回传一个空的Intent，除非有 pending intents传递，否则Intent将为null。该模式适合做一些类似播放音乐的操作。</p>
-</li>
-<li><p><code>START_REDELIVER_INTENT</code>：若系统在<code>onStartCommand()</code>执行并返回后kill了service，那么service会被recreate并回调<code>onStartCommand()</code>并将最后一个Intent回传至该方法。任何 pending intents都会被轮流传递。该模式适合做一些类似下载文件的操作。</p>
-</li>
-<li><p><code>START_STICKY_COMPATIBILITY</code><br>START_STICKY的兼容版本，但不保证服务被kill后一定能重启。<br>而输入参数flags正是代表此次<code>onStartCommand()</code>方法的启动方式，正常启动时，flags默认为0，被kill后重新启动，参数分为以下两种</p>
-</li>
+<h1 id="关于前言"><a href="#关于前言" class="headerlink" title="关于前言"></a>关于前言</h1><p>我们要阅读的是一本专业知识很强的书籍，就不能像读小说是的一目十行，一扫而过，而是要逐字逐句的去读，读完以后要细细品味，还要总结归纳，只有这样重视这本书，我们才能从书中汲取有用的知识，提高自己的价值。</p>
+<p>至于怎样重视一本书呢，当然是从前言开始阅读。每本书基本都有前言，前言虽然是写在书籍的最前边，但是很多作者都是最后才回去编写前言这一部分，这样的话，前言反而成为了本书的总结，我么在读前言的时候实际上是对本书的一个大致的了解，就像写书一样要先列提纲一样，这样在后边的阅读中思路会变得清晰，效果会更好。</p>
+<p>前言以 AlphaGo 以悬殊的比分击败了韩国著名九段围棋棋手，以及谷歌的机械狗和谷歌的无人驾驶汽车等智能产品，讲述了人工智能（以下称为 AI）给人们充满了惊喜，而人工智能最为核心的又是深度学习，并表明了深度学习会成为未来几十年比较火爆的研究方向。然而深度学习本身的复杂度之高，使得很多爱好者都望而却步。因此，作者就意图写这样一本浅显易懂的书，一步一步的带领读者周瑾深度学习的领域，所以，这本书就应运而生。</p>
+<h1 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h1><p>机器学习是深度学习当中的一门学科。书中讲述机器学习就类似人类学习一样，让机器通过学习，掌握一些比较复杂或高要求的工作，来代替由人类做起来比较花时间的事情。</p>
+<p>机器学习是历史的不断进化的产物，人类有别于动物的区别，在于人类会使用工具提高效率，随着计算机的计算能力越来越强，机器也在一定程度上参与了智能化的工作。</p>
+<p>之所以机器能智能化，其本质的原因是有算法在支撑。书中举例一个例子：把邮件分类城普遍邮件和垃圾邮件。</p>
+<p>机器是如何学会分类邮件呢？这几需要几个要素：</p>
+<ol>
+<li>样本</li>
+<li>模型</li>
+<li>验证</li>
+</ol>
+<p>其中：样本分为训练样本——提供机器学习，和验证样本——用于验证机器学习成果；模型我理解的就是算法。</p>
+<p>这种训练的过程称为有监督学习。</p>
+<p>既然有有监督学习，那一定有无监督学习了？当然要，后文提到了无监督学习是一种不需要人类干预，机器对样本进行识别，自己给样本分类，人类就等着收结果就好了，这是一种更高级的训练过程了。</p>
+<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>聚类用具体事物来讲就是分类，是一种典型的 “无监督学习”，聚类的行为根源来源于人类。人类在认知事物的时候，一直都拥有容量性的问题，于是，人类开始对各种事物进行分类，这样有一个好处，就是我们可以将事物的特征以文字，或其他输出形式向所有人展示，当我们在看到类似的事物的时候，就可以辨别出这一事物是哪一类，这一类事物有哪些特征。</p>
+<p>我们想要的就是让机器为我们人类把事物进行分类，把人类从这一过程当中解放出来。这其中提到了两个算法：</p>
+<ol>
+<li>K-Means</li>
+<li>DBSCAN</li>
+</ol>
+<p>其基本思路用白话说就是是将事物抽象成数字，机器会对相近的数字归类。</p>
+<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>书中将回归是 ”有果索因“ 的过程，看完这一节以后我觉得这很像哲学中讲的，从现象到本质的过程。</p>
+<p>在机器学习领域，最常用的回归有两种：</p>
+<ol>
+<li>线性回归</li>
+<li>非线性回归</li>
+</ol>
+<p>不管是哪种回归，总结起来都是讲现实中的事物抽取成数字，从大量数据中抽取对应的函数，验证函数的准确性。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>这一节中提到了两个比较重要的概念：</p>
+<ol>
+<li>召回率</li>
+<li>精确率</li>
+</ol>
+<p>其中，召回率是指在训练开始前的规定的数据中，判断出多少个正确答案，如：有 200 只猫，正确了 150 只，召回率为 150 / 200 = 75%，召回率可以理解为结果可用程度；精确率值得是指在训练结束后的数据中，判断出多少正确答案，如：结果判断出 200 只狗，其中只有 100 只是正确的，然而在训练样本中，只有 150 只狗的图片，那么，精确率为 100 / 200 = 50%。</p>
+<h2 id="综合应用"><a href="#综合应用" class="headerlink" title="综合应用"></a>综合应用</h2><p>这一节展示了机器学习在生活中的应用场景，为的是让我们开拓视野，增加认知。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>用一个概念总结了这一张所讲述的内容 —— 机器学习就是人类定义一定的计算机算法，让计算机根据数据的样本和一些人类的干预来总结并归纳器特征与特点，并用这些特征和特点与一定的学习目标形成映射关系，进而自动化地做出相应反映的过程。</p>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>在文章的最后，列举一下这一节中出现的一些关键字，方便归纳本节内容：</p>
+<ul>
+<li>AI (Artificial Intelligence，人工智能)</li>
+<li>训练样本</li>
+<li>训练</li>
+<li>分类模型</li>
+<li>验证</li>
+<li>有监督学习和无减速学习</li>
+<li>算法</li>
+<li>共性和孤立点</li>
+<li>线性回归和非线性回归</li>
+<li>伯努利分布</li>
+<li>召回率和精确率</li>
+<li>强化学习(reinforcement learning)</li>
 </ul>
-<h2 id="4-Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？"><a href="#4-Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？" class="headerlink" title="4. Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？"></a>4. Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？</h2><p>Service 运行在主线程当中，不是在新的线程，也不再新的进程，因此我认为Service的这三个方法都运行在主线程中。</p>
 
       
     </div>
@@ -462,7 +479,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Android-学习计划/" rel="tag"># Android 学习计划</a>
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
         </div>
       
@@ -475,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/12/How-to-get-root-access-on-Android-emulator/" rel="next" title="如何获得安卓模拟器 root 权限">
-                <i class="fa fa-chevron-left"></i> 如何获得安卓模拟器 root 权限
+              <a href="/2017/11/30/activity-launch-mode/" rel="next" title="activity 启动模式">
+                <i class="fa fa-chevron-left"></i> activity 启动模式
               </a>
             
           </div>
@@ -485,8 +502,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/30/define-the-number-of-version/" rel="prev" title="版本号的定义">
-                版本号的定义 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/05/about-startActivityForResult/" rel="prev" title="关于 startActivityForResult">
+                关于 startActivityForResult <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -627,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#清晰地理解-Service"><span class="nav-number">1.</span> <span class="nav-text">清晰地理解 Service</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Service的start和bind状态有什么区别？"><span class="nav-number">1.1.</span> <span class="nav-text">1.Service的start和bind状态有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-同一个Service，先startService，然后再bindService，如何把它停止掉？"><span class="nav-number">1.2.</span> <span class="nav-text">2. 同一个Service，先startService，然后再bindService，如何把它停止掉？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？"><span class="nav-number">1.3.</span> <span class="nav-text">3. 你有注意到Service的onStartCommand方法的返回值吗？不同返回值有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？"><span class="nav-number">1.4.</span> <span class="nav-text">4. Service的生命周期方法onCreate、onStart、onBind等运行在哪个线程？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#阅读内容"><span class="nav-number">1.</span> <span class="nav-text">阅读内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于前言"><span class="nav-number">2.</span> <span class="nav-text">关于前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是机器学习"><span class="nav-number">3.</span> <span class="nav-text">什么是机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#聚类"><span class="nav-number">3.1.</span> <span class="nav-text">聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-number">3.2.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">3.3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#综合应用"><span class="nav-number">3.4.</span> <span class="nav-text">综合应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.5.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键字"><span class="nav-number">3.6.</span> <span class="nav-text">关键字</span></a></li></ol></li></ol></div>
             
 
           </div>
