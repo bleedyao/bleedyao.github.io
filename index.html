@@ -399,12 +399,12 @@
 
       
         
-          <h1 id="1-startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？"><a href="#1-startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？" class="headerlink" title="1. startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？"></a>1. startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？</h1><ul>
+          <h1 id="startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？"><a href="#startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？" class="headerlink" title="startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？"></a>startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？</h1><ul>
 <li>场景：如果你希望启动另一个 Activity 并接受返回的结果，需要调用 startActivityForResult() 方法。例如：你启动照相应用并需要接收拍摄的照片最为结果；你启动联系人应用并需要接收联系人详情信息最为结果。</li>
 <li>requestCode：当你想启动一个带有返回结果的 Activity 的时候，你需要传递额外的参数，这就是调用 startActivityForResult() 时，需要传递的 requestCode —— 请求码，该参数用于识别的你的请求的请求码。当你收到 Intent 结果是，回调会提供相同的请求码，以便你的应用可以正确识别结果并确定如何处理它。</li>
 <li>resultCode：当用户完成后续 Activity 并返回时，系统会调用你的 Activity 的 onActivityResult() 方法，该方法包括三个参数，其中一个就是 resultCode —— 结果码。如果操作成功，结果是 RESULT_OK；如果用户退出或操作处于某种原因失败，则结果是 RESULT_CANCELED。</li>
 </ul>
-<h1 id="2、Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？"><a href="#2、Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？" class="headerlink" title="2、Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？"></a>2、Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？</h1>
+<h1 id="Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？"><a href="#Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？" class="headerlink" title="Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？"></a>Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？</h1>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/05/about-startActivityForResult/#more" rel="contents">
