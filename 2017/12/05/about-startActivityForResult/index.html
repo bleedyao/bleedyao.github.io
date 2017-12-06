@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/05/about-startActivityForResult/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
 <meta property="og:description" content="1. startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？ 场景：如果你希望启动另一个 Activity 并接受返回的结果，需要调用 startActivityForResult() 方法。例如：你启动照相应用并需要接收拍摄的照片最为结果；你启动联系人应用并需要接收联系人详情信息最为结果。">
-<meta property="og:updated_time" content="2017-12-05T11:31:38.906Z">
+<meta property="og:updated_time" content="2017-12-06T00:44:21.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 startActivityForResult">
 <meta name="twitter:description" content="1. startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？ 场景：如果你希望启动另一个 Activity 并接受返回的结果，需要调用 startActivityForResult() 方法。例如：你启动照相应用并需要接收拍摄的照片最为结果；你启动联系人应用并需要接收联系人详情信息最为结果。">
@@ -400,7 +400,8 @@
 <li>requestCode：当你想启动一个带有返回结果的 Activity 的时候，你需要传递额外的参数，这就是调用 startActivityForResult() 时，需要传递的 requestCode —— 请求码，该参数用于识别的你的请求的请求码。当你收到 Intent 结果是，回调会提供相同的请求码，以便你的应用可以正确识别结果并确定如何处理它。</li>
 <li>resultCode：当用户完成后续 Activity 并返回时，系统会调用你的 Activity 的 onActivityResult() 方法，该方法包括三个参数，其中一个就是 resultCode —— 结果码。如果操作成功，结果是 RESULT_OK；如果用户退出或操作处于某种原因失败，则结果是 RESULT_CANCELED。</li>
 </ul>
-<h1 id="2、Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？"><a href="#2、Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？" class="headerlink" title="2、Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？"></a>2、Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？</h1><ul>
+<h1 id="2、Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？"><a href="#2、Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？" class="headerlink" title="2、Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？"></a>2、Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？</h1><a id="more"></a>
+<ul>
 <li>当 Activity 存在时，它为了返回数据给调用它的 Activity，可以调用 setResult() 方法。这个参数必须是系统所支持的结果码，它可以是标准的结果码，RESULT_CANCELED, RESULT_OK，或者任何自定义的从 RESULT_FIRST_USER（这个值是 1，也就是说可以自定义大于 1 的任何 int 类型的数）开始的值。此外，这个方法（setResult()）可以选择一个包含任何它想要的数据的 Intent 对象返回。所有这些信息返回给调用它的 Activity 的 onActivityResult() 方法中，以及它最初传递过来的值（请求码）。</li>
 <li>可以通过源码解释第二个问题，以下是 Activity 源码摘要 </li>
 </ul>
