@@ -112,7 +112,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/12/about-view/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
 <meta property="og:description" content="View的getWidth()和getMeasuredWidth()有什么区别吗？从名字上可以看出，measuredWidth/height 是用在测量和布局之间的阶段。 举例说明： 父控件要求子控件测量它自己，子控件说，我需要 200 像素 x 200 像素的空间。这就是 measuredWidth/height。 在布局阶段期间，如：在 onLayout 方法。这个方法可以使用它的子控件的 m">
-<meta property="og:updated_time" content="2017-12-12T11:43:24.028Z">
+<meta property="og:updated_time" content="2018-01-02T06:28:31.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 View 的知识">
 <meta name="twitter:description" content="View的getWidth()和getMeasuredWidth()有什么区别吗？从名字上可以看出，measuredWidth/height 是用在测量和布局之间的阶段。 举例说明： 父控件要求子控件测量它自己，子控件说，我需要 200 像素 x 200 像素的空间。这就是 measuredWidth/height。 在布局阶段期间，如：在 onLayout 方法。这个方法可以使用它的子控件的 m">
@@ -412,6 +412,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/12/about-view/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/12/about-view/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -567,6 +577,9 @@
           
 
   
+    <div class="comments" id="comments">
+    </div>
+  
 
 
 
@@ -703,7 +716,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -721,11 +734,38 @@
 
 
 
+  <span id="showDays"></span>
+  <span>     |    </span>
   <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
 
 
 
 
+<script>
+  var seconds = 1000;
+  var minutes = seconds * 60;
+  var hours = minutes * 60;
+  var days = hours * 24;
+  var years = days * 365;
+  var birthDay = Date.UTC(2017,04,01,00,00,00); // 这里设置建站时间
+  setInterval(function() {
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var now = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = now - birthDay;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+      document.getElementById('showDays').innerHTML="本站已运行 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+  }, 1000);
+</script>
         
 
 
@@ -768,6 +808,8 @@
   
 
 
+  
+
 
 
 
@@ -806,6 +848,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
   
 
 
@@ -871,6 +918,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'nDFkXAehSD7nIW4lEp83SjWq-gzGzoHsz',
+        appKey: 'QYw8y8otsM9pLLX8K6vaBWtC',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
