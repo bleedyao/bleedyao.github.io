@@ -105,17 +105,19 @@
 
 
 
-<meta name="description" content="本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。 关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。 阅读内容我是本周二拿到《">
+<meta name="description" content="前言随着谷歌的 AlphaGo 以 4:1 的悬殊比分轻松击败韩国著名九段围棋大师李世石，人工智能（AI）走进了人们的视野，这个沉寂了近 30 年的名词 —— 人工智能，异军突起，正在逐渐在每个细节上改变我们的生产能力，改变我们的生活。 到现在，靠机器人来扫地，靠刷脸来取钱，靠自动驾驶来周游世界已然不是什么科幻小说中的内容了，这些事情已经真实的发生在我们的身边。 2017 年 7 月 8 日，国务">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="什么是机器学习">
-<meta property="og:url" content="http://yoursite.com/2017/12/02/what-is-the-machine-learning/index.html">
+<meta property="og:title" content="深度学习与 TensorFlow —— 基础篇">
+<meta property="og:url" content="http://yoursite.com/2018/01/14/deep-learning-and-tensorflow-basic/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。 关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。 阅读内容我是本周二拿到《">
-<meta property="og:updated_time" content="2017-12-06T01:55:38.345Z">
+<meta property="og:description" content="前言随着谷歌的 AlphaGo 以 4:1 的悬殊比分轻松击败韩国著名九段围棋大师李世石，人工智能（AI）走进了人们的视野，这个沉寂了近 30 年的名词 —— 人工智能，异军突起，正在逐渐在每个细节上改变我们的生产能力，改变我们的生活。 到现在，靠机器人来扫地，靠刷脸来取钱，靠自动驾驶来周游世界已然不是什么科幻小说中的内容了，这些事情已经真实的发生在我们的身边。 2017 年 7 月 8 日，国务">
+<meta property="og:image" content="http://yoursite.com/2018/01/14/article_image/neural_network_structure.png">
+<meta property="og:updated_time" content="2018-01-14T12:48:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="什么是机器学习">
-<meta name="twitter:description" content="本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。 关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。 阅读内容我是本周二拿到《">
+<meta name="twitter:title" content="深度学习与 TensorFlow —— 基础篇">
+<meta name="twitter:description" content="前言随着谷歌的 AlphaGo 以 4:1 的悬殊比分轻松击败韩国著名九段围棋大师李世石，人工智能（AI）走进了人们的视野，这个沉寂了近 30 年的名词 —— 人工智能，异军突起，正在逐渐在每个细节上改变我们的生产能力，改变我们的生活。 到现在，靠机器人来扫地，靠刷脸来取钱，靠自动驾驶来周游世界已然不是什么科幻小说中的内容了，这些事情已经真实的发生在我们的身边。 2017 年 7 月 8 日，国务">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/14/article_image/neural_network_structure.png">
 
 
 
@@ -145,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/02/what-is-the-machine-learning/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/14/deep-learning-and-tensorflow-basic/"/>
 
 
 
 
 
-  <title>什么是机器学习 | 姚陆浩的博客</title>
+  <title>深度学习与 TensorFlow —— 基础篇 | 姚陆浩的博客</title>
   
 
 
@@ -336,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/what-is-the-machine-learning/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/14/deep-learning-and-tensorflow-basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bleedyao">
@@ -353,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">什么是机器学习</h1>
+          <h1 class="post-title" itemprop="name headline">深度学习与 TensorFlow —— 基础篇</h1>
         
 
         <div class="post-meta">
@@ -365,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T14:12:45+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-14T20:48:30+08:00">
+                2018-01-14
               </time>
             
 
@@ -406,8 +408,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/02/what-is-the-machine-learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/02/what-is-the-machine-learning/" itemprop="commentCount"></span>
+                <a href="/2018/01/14/deep-learning-and-tensorflow-basic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/14/deep-learning-and-tensorflow-basic/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -415,7 +417,7 @@
 
           
           
-             <span id="/2017/12/02/what-is-the-machine-learning/" class="leancloud_visitors" data-flag-title="什么是机器学习">
+             <span id="/2018/01/14/deep-learning-and-tensorflow-basic/" class="leancloud_visitors" data-flag-title="深度学习与 TensorFlow —— 基础篇">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -446,14 +448,15 @@
       
 
       
-        <p>本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。</p>
-<p>关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。</p>
-<h1 id="阅读内容"><a href="#阅读内容" class="headerlink" title="阅读内容"></a>阅读内容</h1><p>我是本周二拿到《白话深度学习与 TensorFlow》这本书，这个礼拜，我把前言和第一章认真的看完了，感觉这本书白话二字用的很好，书中列举的很多生活中的例子来类比一些比较难懂的概念，还列举了人工智能在生活中的一些好玩和使用的功能，让我们平缓的走入人工智能领域。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>随着谷歌的 AlphaGo 以 4:1 的悬殊比分轻松击败韩国著名九段围棋大师李世石，人工智能（AI）走进了人们的视野，这个沉寂了近 30 年的名词 —— 人工智能，异军突起，正在逐渐在每个细节上改变我们的生产能力，改变我们的生活。</p>
+<p>到现在，靠机器人来扫地，靠刷脸来取钱，靠自动驾驶来周游世界已然不是什么科幻小说中的内容了，这些事情已经真实的发生在我们的身边。</p>
+<p>2017 年 7 月 8 日，国务院发布文件「<a href="http://www.gov.cn/zhengce/content/2017-07/20/content_5211996.htm" target="_blank" rel="external">国务院关于印发新一代人工智能发展规划的通知</a>」，为的便是抢抓人工智能发展的重大战略机遇，构筑我国人工智能发展的先发优势，加快建设创新型国家和世界科技强国。</p>
 <a id="more"></a>
-<h1 id="关于前言"><a href="#关于前言" class="headerlink" title="关于前言"></a>关于前言</h1><p>我们要阅读的是一本专业知识很强的书籍，就不能像读小说是的一目十行，一扫而过，而是要逐字逐句的去读，读完以后要细细品味，还要总结归纳，只有这样重视这本书，我们才能从书中汲取有用的知识，提高自己的价值。</p>
-<p>至于怎样重视一本书呢，当然是从前言开始阅读。每本书基本都有前言，前言虽然是写在书籍的最前边，但是很多作者都是最后才回去编写前言这一部分，这样的话，前言反而成为了本书的总结，我么在读前言的时候实际上是对本书的一个大致的了解，就像写书一样要先列提纲一样，这样在后边的阅读中思路会变得清晰，效果会更好。</p>
-<p>前言以 AlphaGo 以悬殊的比分击败了韩国著名九段围棋棋手，以及谷歌的机械狗和谷歌的无人驾驶汽车等智能产品，讲述了人工智能（以下称为 AI）给人们充满了惊喜，而人工智能最为核心的又是深度学习，并表明了深度学习会成为未来几十年比较火爆的研究方向。然而深度学习本身的复杂度之高，使得很多爱好者都望而却步。因此，作者就意图写这样一本浅显易懂的书，一步一步的带领读者周瑾深度学习的领域，所以，这本书就应运而生。</p>
-<h1 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h1><p>机器学习是深度学习当中的一门学科。书中讲述机器学习就类似人类学习一样，让机器通过学习，掌握一些比较复杂或高要求的工作，来代替由人类做起来比较花时间的事情。</p>
+<p>同年 11 月，科技部召开新一代人工智能发展规划暨重大科技项目启动会，标志着新一代人工智能发展规划和重大科技项目进入全面启动实施阶段。百度，阿里，腾讯和科大讯飞成为了国家首批新一代人工智能开放创新平台。相信大家也是知道这四家公司的实力。</p>
+<p>以上是国内的情况，国外更不用说，谷歌除了 AlphaGo 以外，更有 Google Driverless Car 研发的的 Google 自动驾驶汽车，至今已经测试驾驶了 48 万公里。</p>
+<p>可以说，这些事情都在鼓舞着我们这些对未来世界充满渴望的人投入更多的精力去研究 AI 带来的新惊喜，而人工智能这一领域中最为核心的内容之一就是深度学习。深度学习现在在全世界范围内都有这众多的专业工作者和业余爱好者在进行着研究，并且每个月都有不少新的落地产品问世。应该说，深度学习是目前世界上最热门的研究领域之一，而且也是未来几十年热门的研究方向之一。</p>
+<p>但是，不得不说深度学习由于其本身的复杂性，是的很多有着浓厚兴趣的爱好者望而却步。然而 「白话深度学习与 TensorFlow」是一本适合于零基础的初学者，书中语言通俗易懂，通过聊天和讲故事的方法，凭借高中以上水平的数学知识把大家一步一步地带入深度学习的领域。只要大家在阅读这本书的时候保持一点点耐心，即便没有高等数学知识的朋友，通过努力也一样可以基本掌握深度学习的应用技巧。所以，对人工智能感兴趣，这本书是正确的选择。</p>
+<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><p>机器学习是深度学习当中的一门学科。书中讲述机器学习就类似人类学习一样，让机器通过学习，掌握一些比较复杂或高要求的工作，来代替由人类做起来比较花时间的事情。</p>
 <p>机器学习是历史的不断进化的产物，人类有别于动物的区别，在于人类会使用工具提高效率，随着计算机的计算能力越来越强，机器也在一定程度上参与了智能化的工作。</p>
 <p>之所以机器能智能化，其本质的原因是有算法在支撑。书中举例一个例子：把邮件分类城普遍邮件和垃圾邮件。</p>
 <p>机器是如何学会分类邮件呢？这几需要几个要素：</p>
@@ -462,7 +465,7 @@
 <li>模型</li>
 <li>验证</li>
 </ol>
-<p>其中：样本分为训练样本——提供机器学习，和验证样本——用于验证机器学习成果；模型我理解的就是算法。</p>
+<p>其中：样本分为训练样本 —— 提供机器学习，和验证样本 —— 用于验证机器学习成果；模型我理解的就是算法。</p>
 <p>这种训练的过程称为有监督学习。</p>
 <p>既然有有监督学习，那一定有无监督学习了？当然要，后文提到了无监督学习是一种不需要人类干预，机器对样本进行识别，自己给样本分类，人类就等着收结果就好了，这是一种更高级的训练过程了。</p>
 <h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>聚类用具体事物来讲就是分类，是一种典型的 “无监督学习”，聚类的行为根源来源于人类。人类在认知事物的时候，一直都拥有容量性的问题，于是，人类开始对各种事物进行分类，这样有一个好处，就是我们可以将事物的特征以文字，或其他输出形式向所有人展示，当我们在看到类似的事物的时候，就可以辨别出这一事物是哪一类，这一类事物有哪些特征。</p>
@@ -472,7 +475,7 @@
 <li>DBSCAN</li>
 </ol>
 <p>其基本思路用白话说就是是将事物抽象成数字，机器会对相近的数字归类。</p>
-<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>书中将回归是 ”有果索因“ 的过程，看完这一节以后我觉得这很像哲学中讲的，从现象到本质的过程。</p>
+<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>回归就是 ”有果索因“ 的过程，看完这一节以后我觉得这很像哲学中讲的，从现象到本质的过程。</p>
 <p>在机器学习领域，最常用的回归有两种：</p>
 <ol>
 <li>线性回归</li>
@@ -485,23 +488,52 @@
 <li>精确率</li>
 </ol>
 <p>其中，召回率是指在训练开始前的规定的数据中，判断出多少个正确答案，如：有 200 只猫，正确了 150 只，召回率为 150 / 200 = 75%，召回率可以理解为结果可用程度；精确率值得是指在训练结束后的数据中，判断出多少正确答案，如：结果判断出 200 只狗，其中只有 100 只是正确的，然而在训练样本中，只有 150 只狗的图片，那么，精确率为 100 / 200 = 50%。</p>
-<h2 id="综合应用"><a href="#综合应用" class="headerlink" title="综合应用"></a>综合应用</h2><p>这一节展示了机器学习在生活中的应用场景，为的是让我们开拓视野，增加认知。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>用一个概念总结了这一张所讲述的内容 —— 机器学习就是人类定义一定的计算机算法，让计算机根据数据的样本和一些人类的干预来总结并归纳器特征与特点，并用这些特征和特点与一定的学习目标形成映射关系，进而自动化地做出相应反映的过程。</p>
-<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>在文章的最后，列举一下这一节中出现的一些关键字，方便归纳本节内容：</p>
+<h1 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h1><h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>在真正谈论深度学习（deep learning）之前，必须先说一下神经网络，或者称人工神经网络（artificial neural network, ANN）。神经网络其实就是一种算法体系。它的产生受益于生物神经细胞结构。</p>
+<p>人的神经细胞由树突，细胞体，轴突，髓鞘和突触组成。它们相互协作，通过<strong>化学信号</strong>传递信息，人类虽然对化学分子具体承载的信息仍旧是一知半解，但却从中受到了一些启发，希望能设计出类似的网状链接的处理单元，让它们彼此之间通过某方法互相刺激、协同完成信息处理。这种感知器模型（perceptron）和现在最新应用框架中的神经网络单元形式上是非常相近的。</p>
+<p>要想了解神经网络，首先要看一下神经网络最基本的组成单元 —— 神经元。</p>
+<h3 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h3><p>我们现在使用的神经元通常有两个部分，一是「线性模型」，另一个是「激励函数」。</p>
+<p>最简单的神经元函数表达式和一个普通函数很相近，比如：<br>$$<br>f(x) = x +1<br>$$<br>这就是一个最简单的神经元，当 <em>x</em> = 1 时，输出 <em>f(x)</em> = 2。</p>
+<p>上面的函数是神经元当中，<em>x</em> 只是的一个一维向量，实际的神经元 x 会是多维的向量， 比如我们的函数变成了一个线性函数<br>$$<br>f(x) = wx +b<br>$$<br>其中 <em>x</em> 是一个 1 x <em>n</em> 的矩阵，而 <em>w</em> 是一个 <em>n</em> x 1 的权重矩阵，<em>b</em> 是偏置项。为了搞懂这些变量是怎么协作的，我们举个具体的例子。</p>
+<p>假设，<em>n</em> 是 5，那么 <em>x</em> 是一个 1 x 5 的输入矩阵，例如：<br>$$<br>\left(\begin{matrix}<br>    1\<br>    50\<br>    27\<br>    19\<br>    -55\<br>    \end{matrix}\right)<br>$$<br>这样就是一个完整的特征向量 <em>x</em> 了，它表示了对一个样本的描述，这个描述是个多维度的描述，具体每个维度指代的含义在不同场景下对应不同解释。比如这个矩阵可能表示的是一个样本客户的个人财务情况，分别表示：<br>$$<br>\left(\begin{matrix}<br>性别\<br>年龄\<br>年收入\<br>用户忠诚度指数\<br>负债\<br>\end{matrix}<br>\right)<br>$$<br><em>w</em> 是一个 <em>n</em> x 1 的矩阵，它表示的是一个权重的概念，例如：<br>$$<br>[\begin{matrix}0.3 \qquad0.8 \qquad1.5 \qquad1.2 \qquad0.5]\end{matrix}<br>$$<br>他们分别表示：<br>$$<br>[\begin{matrix}性别权重 \qquad年龄权重 \qquad年收入权重 \qquad用户忠诚度指数权重 \qquad负债权重]\end{matrix}<br>$$<br><em>b</em> 是一个实数值，在这里我们假设 <em>b</em> = 0，即 <em>f</em>(<em>x</em>) = <em>wx</em> + <em>b</em> 就变成了：<br>$$<br>f(x) = 1\times0.3\ +\ 50\times0.8\ +\ 27\times1.5\ +\ 19\times1.2\ +\ (-55)\times0.5\ + \ 0 = 44.7<br>$$<br>在前面所说的回归的部分，有个 <em>Loss</em> 的函数：<br>$$<br>Loss = \sum<em>{i = 1}^{n}|wx</em>{i}+b-y_{i}|<br>$$<br>来描述拟合与真实观测的差异之和，我们称之为<strong>残差</strong>。这个 <em>Loss</em> 要尽可能的小。</p>
+<h3 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h3><p>激励函数（或激活函数）用来加入一些非线性的因素。</p>
+<p>在百度（或谷歌）网站搜索「<a href="http://blog.csdn.net/dabokele/article/details/58713727" target="_blank" rel="external">激励函数</a>」，可以看出它可谓是五花八门，其中通常使用的激励函数有：</p>
 <ul>
-<li>AI (Artificial Intelligence，人工智能)</li>
-<li>训练样本</li>
-<li>训练</li>
-<li>分类模型</li>
-<li>验证</li>
-<li>有监督学习和无减速学习</li>
-<li>算法</li>
-<li>共性和孤立点</li>
-<li>线性回归和非线性回归</li>
-<li>伯努利分布</li>
-<li>召回率和精确率</li>
-<li>强化学习(reinforcement learning)</li>
+<li>Sigmoid 函数</li>
+<li>Tanh 函数</li>
+<li>ReLU 函数</li>
+<li>Linear 函数</li>
 </ul>
+<h3 id="神经网络-1"><a href="#神经网络-1" class="headerlink" title="神经网络"></a>神经网络</h3><p>上面说了一大堆，下面看看神经网络的结构吧。在一个神经网络中通常分为这样继承：输入层 (input layer)、隐藏层 (hidden layer，也叫隐含层)、输出层 (output layer)，下图是一个比较简单的神经网络结构了。</p>
+<p><img src="./../article_image/neural_network_structure.png" alt="神经网络结构图"></p>
+<p>所以有个叫法很形象，神经网络 —— 由神经元（神经节点）所组织的网络。</p>
+<h2 id="深度神经网络"><a href="#深度神经网络" class="headerlink" title="深度神经网络"></a>深度神经网络</h2><p>所谓深度学习实际指的是基于深度神经网络（deep neural networks，DNN）的学习，也就是深度人工神经网络所进行的学习过程，或称作 Deep Learning。这个 Deep 指的是神经网络的深度（层数多）。具体多少层算多，其实也没有一个说法，我们姑且将超过 2 层的 —— 也就是 1 个隐藏层和 1 个输出层以上深度的都叫做深度神经网络。</p>
+<h1 id="TensorFlow-框架特性与安装"><a href="#TensorFlow-框架特性与安装" class="headerlink" title="TensorFlow 框架特性与安装"></a>TensorFlow 框架特性与安装</h1><p>随着深度学习技术的逐渐兴起，世界范围内支持深度学习的框架也相继登场。推动一个开源项目发展的一个至关重要的一点在于拥有一个火热的社区，谷歌在去年的谷歌开发者大会上，花了很大的篇幅去介绍自家重要的开源项目 —— TensorFlow，所以这个框架的火热程度可想而知，作为深度学习框架在合适不过了。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>TensorFlow 是一个采用数据流图（data flow graphs），用于数值计算的开源软件库</p>
+<h2 id="与其他框架对比"><a href="#与其他框架对比" class="headerlink" title="与其他框架对比"></a>与其他框架对比</h2><p>TensorFlow 与其他框架相比，它不仅便携，高效，可扩展，还能在不同计算机上运行：小到智能手机，大到计算机集群；它是一个款轻量级的软件，可以立即生成你的训练模型，也能重新实现它；TensorFlow 有强大的社区、企业支持，因此它广泛用于从个人到企业、从初创公司到大公司等不同群体。</p>
+<p>TensorFlow 还有一些其他特点，这些特点不见的都是独一无二的：</p>
+<ul>
+<li>多环境与集群支持</li>
+<li>TensorBoard —— 看得见的训练</li>
+<li>TensorFlow Serving —— 模型</li>
+</ul>
+<h2 id="安装-TensorFlow"><a href="#安装-TensorFlow" class="headerlink" title="安装 TensorFlow"></a>安装 TensorFlow</h2><p>你需要准备以下软件</p>
+<ul>
+<li><a href="https://pip.pypa.io/en/stable/installing/" target="_blank" rel="external">pip</a> （或 <a href="https://conda.io/docs/user-guide/getting-started.html" target="_blank" rel="external">Anaconda</a>）</li>
+<li><a href="https://www.python.org/downloads/" target="_blank" rel="external">python</a> </li>
+</ul>
+<p>笔者当前环境：</p>
+<ul>
+<li>操作系统：Mac OS X 10.13.2</li>
+<li>pip 版本：9.0.1</li>
+<li>python 版本：3.6</li>
+</ul>
+<p>准备好上述软件以后，接下来是<a href="https://www.tensorflow.org/install/" target="_blank" rel="external">安装 TensorFlow</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> pip3 install tensorflow</div></pre></td></tr></table></figure>
+<p>执行完上面的命令，TensorFlow 就安装好了。</p>
+<p>之后，写一段 Hello World 程序：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> python</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hello = tf.constant(<span class="string">'Hello, TensorFlow!'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sess = tf.Session()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(sess.run(hello))</div><div class="line"><span class="string">b'Hello, TensorFlow!'</span> <span class="comment"># 这是 python 中 bytes 类型的数据</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(sess.run(hello).decode())</div><div class="line">Hello, TensorFlow!</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = tf.constant(<span class="number">10</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = tf.constant(<span class="number">32</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(sees.run(a + b))</div><div class="line"><span class="number">42</span></div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<p>如果你运行的结果和我的结果出入不大，那么恭喜你🎉，说明你的 TensorFlow 安装成功了。</p>
 
       
     </div>
@@ -561,8 +593,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/30/activity-launch-mode/" rel="next" title="activity 启动模式">
-                <i class="fa fa-chevron-left"></i> activity 启动模式
+              <a href="/2018/01/07/java-reference-type/" rel="next" title="Java 引用类型和单例设计模式">
+                <i class="fa fa-chevron-left"></i> Java 引用类型和单例设计模式
               </a>
             
           </div>
@@ -570,10 +602,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/05/about-startActivityForResult/" rel="prev" title="关于 startActivityForResult">
-                关于 startActivityForResult <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -722,7 +750,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#阅读内容"><span class="nav-number">1.</span> <span class="nav-text">阅读内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于前言"><span class="nav-number">2.</span> <span class="nav-text">关于前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是机器学习"><span class="nav-number">3.</span> <span class="nav-text">什么是机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#聚类"><span class="nav-number">3.1.</span> <span class="nav-text">聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-number">3.2.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">3.3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#综合应用"><span class="nav-number">3.4.</span> <span class="nav-text">综合应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.5.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键字"><span class="nav-number">3.6.</span> <span class="nav-text">关键字</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习"><span class="nav-number">2.</span> <span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#聚类"><span class="nav-number">2.1.</span> <span class="nav-text">聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-number">2.2.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">2.3.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深度学习"><span class="nav-number">3.</span> <span class="nav-text">深度学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络"><span class="nav-number">3.1.</span> <span class="nav-text">神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#神经元"><span class="nav-number">3.1.1.</span> <span class="nav-text">神经元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激励函数"><span class="nav-number">3.1.2.</span> <span class="nav-text">激励函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络-1"><span class="nav-number">3.1.3.</span> <span class="nav-text">神经网络</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度神经网络"><span class="nav-number">3.2.</span> <span class="nav-text">深度神经网络</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TensorFlow-框架特性与安装"><span class="nav-number">4.</span> <span class="nav-text">TensorFlow 框架特性与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">4.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与其他框架对比"><span class="nav-number">4.2.</span> <span class="nav-text">与其他框架对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-TensorFlow"><span class="nav-number">4.3.</span> <span class="nav-text">安装 TensorFlow</span></a></li></ol></li></ol></div>
             
 
           </div>
