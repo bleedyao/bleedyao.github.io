@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -153,7 +153,7 @@
 
 
 
-  <title>深度学习与 TensorFlow —— 基础篇 | 姚陆浩的博客</title>
+  <title>深度学习与 TensorFlow —— 基础篇 | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -172,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -487,14 +487,14 @@
 <li>召回率</li>
 <li>精确率</li>
 </ol>
-<p>其中，召回率是指在训练开始前的规定的数据中，判断出多少个正确答案，如：有 200 只猫，正确了 150 只，召回率为 150 / 200 = 75%，召回率可以理解为结果可用程度；精确率值得是指在训练结束后的数据中，判断出多少正确答案，如：结果判断出 200 只狗，其中只有 100 只是正确的，然而在训练样本中，只有 150 只狗的图片，那么，精确率为 100 / 200 = 50%。</p>
+<p>其中，召回率是指在训练开始前的规定的数据中，判断出多少个正确答案，如：有 200 只猫，正确了 150 只，召回率为 150 / 200 = 75%，召回率可以理解为结果可用程度；精确率值得是指在训练结束后的数据中，判断出多少正确答案，如：结果判断出 200 只狗，其中只有 100 只是正确的，然而在训练样本中，只有 150 只狗的图片，那么，精确率为 100 ÷ 200 = 50%。</p>
 <h1 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h1><h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>在真正谈论深度学习（deep learning）之前，必须先说一下神经网络，或者称人工神经网络（artificial neural network, ANN）。神经网络其实就是一种算法体系。它的产生受益于生物神经细胞结构。</p>
 <p>人的神经细胞由树突，细胞体，轴突，髓鞘和突触组成。它们相互协作，通过<strong>化学信号</strong>传递信息，人类虽然对化学分子具体承载的信息仍旧是一知半解，但却从中受到了一些启发，希望能设计出类似的网状链接的处理单元，让它们彼此之间通过某方法互相刺激、协同完成信息处理。这种感知器模型（perceptron）和现在最新应用框架中的神经网络单元形式上是非常相近的。</p>
 <p>要想了解神经网络，首先要看一下神经网络最基本的组成单元 —— 神经元。</p>
 <h3 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h3><p>我们现在使用的神经元通常有两个部分，一是「线性模型」，另一个是「激励函数」。</p>
-<p>最简单的神经元函数表达式和一个普通函数很相近，比如：<br>$$<br>f(x) = x +1<br>$$<br>这就是一个最简单的神经元，当 <em>x</em> = 1 时，输出 <em>f(x)</em> = 2。</p>
-<p>上面的函数是神经元当中，<em>x</em> 只是的一个一维向量，实际的神经元 x 会是多维的向量， 比如我们的函数变成了一个线性函数<br>$$<br>f(x) = wx +b<br>$$<br>其中 <em>x</em> 是一个 1 x <em>n</em> 的矩阵，而 <em>w</em> 是一个 <em>n</em> x 1 的权重矩阵，<em>b</em> 是偏置项。为了搞懂这些变量是怎么协作的，我们举个具体的例子。</p>
-<p>假设，<em>n</em> 是 5，那么 <em>x</em> 是一个 1 x 5 的输入矩阵，例如：<br>$$<br>\left(\begin{matrix}<br>    1\<br>    50\<br>    27\<br>    19\<br>    -55\<br>    \end{matrix}\right)<br>$$<br>这样就是一个完整的特征向量 <em>x</em> 了，它表示了对一个样本的描述，这个描述是个多维度的描述，具体每个维度指代的含义在不同场景下对应不同解释。比如这个矩阵可能表示的是一个样本客户的个人财务情况，分别表示：<br>$$<br>\left(\begin{matrix}<br>性别\<br>年龄\<br>年收入\<br>用户忠诚度指数\<br>负债\<br>\end{matrix}<br>\right)<br>$$<br><em>w</em> 是一个 <em>n</em> x 1 的矩阵，它表示的是一个权重的概念，例如：<br>$$<br>[\begin{matrix}0.3 \qquad0.8 \qquad1.5 \qquad1.2 \qquad0.5]\end{matrix}<br>$$<br>他们分别表示：<br>$$<br>[\begin{matrix}性别权重 \qquad年龄权重 \qquad年收入权重 \qquad用户忠诚度指数权重 \qquad负债权重]\end{matrix}<br>$$<br><em>b</em> 是一个实数值，在这里我们假设 <em>b</em> = 0，即 <em>f</em>(<em>x</em>) = <em>wx</em> + <em>b</em> 就变成了：<br>$$<br>f(x) = 1\times0.3\ +\ 50\times0.8\ +\ 27\times1.5\ +\ 19\times1.2\ +\ (-55)\times0.5\ + \ 0 = 44.7<br>$$<br>在前面所说的回归的部分，有个 <em>Loss</em> 的函数：<br>$$<br>Loss = \sum<em>{i = 1}^{n}|wx</em>{i}+b-y_{i}|<br>$$<br>来描述拟合与真实观测的差异之和，我们称之为<strong>残差</strong>。这个 <em>Loss</em> 要尽可能的小。</p>
+<p>最简单的神经元函数表达式和一个普通函数很相近，比如：<br>$$<br>f(x) = x +1<br>$$<br>这就是一个最简单的神经元，当 \(x = 1 \) 时，输出 \(f(x) = 2 \)。</p>
+<p>上面的函数是神经元当中，\(x\) 只是的一个一维向量，实际的神经元 x 会是多维的向量， 比如我们的函数变成了一个线性函数<br>$$<br>f(x) = wx +b<br>$$<br>其中 \(x\) 是一个 \(1 \times n\) 的矩阵，而 \(w\) 是一个 \(n \times 1\) 的权重矩阵，\(b\) 是偏置项。为了搞懂这些变量是怎么协作的，我们举个具体的例子。</p>
+<p>假设，\(n\) 是 5，那么 <em>x</em> 是一个 \(1 \times 5\) 的输入矩阵，例如：<br>$$<br>\left(\begin{matrix}<br>    1  \\<br>    50  \\<br>    27  \\<br>    19  \\<br>    -55  \\<br>    \end{matrix}\right)<br>$$<br>这样就是一个完整的特征向量 \(x\) 了，它表示了对一个样本的描述，这个描述是个多维度的描述，具体每个维度指代的含义在不同场景下对应不同解释。比如这个矩阵可能表示的是一个样本客户的个人财务情况，分别表示：<br>$$<br>\left(\begin{matrix}<br>性别\\<br>年龄\\<br>年收入\\<br>用户忠诚度指数\\<br>负债\<br>\end{matrix}<br>\right)<br>$$<br>\(w\) 是一个 \(n \times 1\) 的矩阵，它表示的是一个权重的概念，例如：<br>$$<br>\left[\begin{matrix}0.3 &amp;0.8 &amp;1.5 &amp;1.2 &amp;0.5\end{matrix}\right]<br>$$<br>他们分别表示：<br>$$<br>[\begin{matrix}性别权重 &amp;年龄权重 &amp;年收入权重 &amp;用户忠诚度指数权重 &amp;负债权重]\end{matrix}<br>$$<br>\(b\) 是一个实数值，在这里我们假设 \(b\) = 0，即 \(f(x) = wx + b\) 就变成了：<br>$$<br>f(x) = 1\times0.3\ +\ 50\times0.8\ +\ 27\times1.5\ +\ 19\times1.2\ +\ (-55)\times0.5\ + \ 0 = 44.7<br>$$<br>在前面所说的回归的部分，有个 \(Loss\) 的函数：<br>$$<br>\begin{aligned}Loss = \sum_{i = 1}^{n}|wx_{i}+b-y_{i}|\end{aligned}<br>$$<br>来描述拟合与真实观测的差异之和，我们称之为<strong>残差</strong>。这个 \(Loss\) 要尽可能的小。</p>
 <h3 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h3><p>激励函数（或激活函数）用来加入一些非线性的因素。</p>
 <p>在百度（或谷歌）网站搜索「<a href="http://blog.csdn.net/dabokele/article/details/58713727" target="_blank" rel="external">激励函数</a>」，可以看出它可谓是五花八门，其中通常使用的激励函数有：</p>
 <ul>
@@ -534,6 +534,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> python</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>hello = tf.constant(<span class="string">'Hello, TensorFlow!'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sess = tf.Session()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(sess.run(hello))</div><div class="line"><span class="string">b'Hello, TensorFlow!'</span> <span class="comment"># 这是 python 中 bytes 类型的数据</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(sess.run(hello).decode())</div><div class="line">Hello, TensorFlow!</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = tf.constant(<span class="number">10</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = tf.constant(<span class="number">32</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>print(sees.run(a + b))</div><div class="line"><span class="number">42</span></div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
 <p>如果你运行的结果和我的结果出入不大，那么恭喜你🎉，说明你的 TensorFlow 安装成功了。</p>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
 
       
     </div>
@@ -1121,7 +1125,7 @@
         showTime(Counter);
       }
     });
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
