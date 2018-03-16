@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android-学习计划," />
 
 
 
@@ -105,16 +105,19 @@
 
 
 
-<meta name="description" content="时间考验一切，经得起时间考验的就为人所信仰">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="Android中有哪几种ClassLoader？它们的作用和区别是什么？Android 中的 ClassLoader 工作交给了 BaseDexClassLoader 来处理。 BaseDexClassLoader 及其子类ClassLoader 是个抽象类，其直接子类有 BaseDexClassLoader 和 SecureClassLoader。 SecureClassLoader 的子类是">
+<meta name="keywords" content="Android-学习计划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android中的ClassLoader">
+<meta property="og:url" content="http://yoursite.com/2018/03/14/classloader-in-android/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="时间考验一切，经得起时间考验的就为人所信仰">
-<meta property="og:updated_time" content="2018-01-02T09:44:11.792Z">
+<meta property="og:description" content="Android中有哪几种ClassLoader？它们的作用和区别是什么？Android 中的 ClassLoader 工作交给了 BaseDexClassLoader 来处理。 BaseDexClassLoader 及其子类ClassLoader 是个抽象类，其直接子类有 BaseDexClassLoader 和 SecureClassLoader。 SecureClassLoader 的子类是">
+<meta property="og:image" content="http://otqmfc4ah.bkt.clouddn.com/classloader_arch.gif">
+<meta property="og:updated_time" content="2018-03-14T08:29:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta name="twitter:title" content="Android中的ClassLoader">
+<meta name="twitter:description" content="Android中有哪几种ClassLoader？它们的作用和区别是什么？Android 中的 ClassLoader 工作交给了 BaseDexClassLoader 来处理。 BaseDexClassLoader 及其子类ClassLoader 是个抽象类，其直接子类有 BaseDexClassLoader 和 SecureClassLoader。 SecureClassLoader 的子类是">
+<meta name="twitter:image" content="http://otqmfc4ah.bkt.clouddn.com/classloader_arch.gif">
 
 
 
@@ -144,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/14/classloader-in-android/"/>
 
 
 
 
 
-  <title>tags | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Android中的ClassLoader | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -323,40 +326,248 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/classloader-in-android/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 11 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/android/" style="font-size: 24px; color: #4f4f4f">Android</a> <a href="/tags/android-学习计划/" style="font-size: 30px; color: #111">Android 学习计划</a> <a href="/tags/android-学习计划/" style="font-size: 12px; color: #ccc">Android-学习计划</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/java/" style="font-size: 12px; color: #ccc">java</a> <a href="/tags/总结/" style="font-size: 12px; color: #ccc">总结</a> <a href="/tags/搭建博客/" style="font-size: 12px; color: #ccc">搭建博客</a> <a href="/tags/深度学习/" style="font-size: 18px; color: #8e8e8e">深度学习</a> <a href="/tags/版本号/" style="font-size: 12px; color: #ccc">版本号</a> <a href="/tags/资源/" style="font-size: 12px; color: #ccc">资源</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Android中的ClassLoader</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-14T16:29:56+08:00">
+                2018-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/classloader/" itemprop="url" rel="index">
+                    <span itemprop="name">classloader</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/14/classloader-in-android/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/14/classloader-in-android/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/14/classloader-in-android/" class="leancloud_visitors" data-flag-title="Android中的ClassLoader">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="Android中有哪几种ClassLoader？它们的作用和区别是什么？"><a href="#Android中有哪几种ClassLoader？它们的作用和区别是什么？" class="headerlink" title="Android中有哪几种ClassLoader？它们的作用和区别是什么？"></a>Android中有哪几种ClassLoader？它们的作用和区别是什么？</h1><p>Android 中的 ClassLoader 工作交给了 BaseDexClassLoader 来处理。</p>
+<h2 id="BaseDexClassLoader-及其子类"><a href="#BaseDexClassLoader-及其子类" class="headerlink" title="BaseDexClassLoader 及其子类"></a>BaseDexClassLoader 及其子类</h2><p>ClassLoader 是个抽象类，其直接子类有 BaseDexClassLoader 和 SecureClassLoader。</p>
+<p>SecureClassLoader 的子类是 URLClassLoader，其只能用来加载 jar 文件，这在 Android 的 Dalvik/ART 上没法使用的。</p>
+<p>BaseDexClassLoader 的子类是 PathClassLoader，DexClassLoader 和 InMemoryDexClassLoader。</p>
+<a id="more"></a>
+<h3 id="PathClassLoader"><a href="#PathClassLoader" class="headerlink" title="PathClassLoader"></a>PathClassLoader</h3><p>PathClassLoader 在应用启动时创建，从 data/app/… 安装目录下加载 apk 文件。</p>
+<p>在 Android 中，App 安装到手机后，apk 里面的 class.dex 中的 class 均是通过 PathClassLoader 来加载的。</p>
+<h3 id="DexClassLoader"><a href="#DexClassLoader" class="headerlink" title="DexClassLoader"></a>DexClassLoader</h3><p>对比 PathClassLoader 只能加载已经安装应用的 dex 或 apk 文件，DexClassLoader 则没有此限制，可以从 SD 卡上加载包含 class.dex 的 .jar 和 .apk 文件，这也是插件化和热修复的基础，在不需要安装应用的情况下，完成需要使用的 dex 的加载。</p>
+<h3 id="InMemoryDexClassLoader"><a href="#InMemoryDexClassLoader" class="headerlink" title="InMemoryDexClassLoader"></a>InMemoryDexClassLoader</h3><p>InMemoryDexClassLoader 是在API26时新增的类加载器，继承自BaseDexClassLoader。</p>
+<p>InMemoryDexClassLoader的构造函数调用其父类DexClassLoader的构造函数。</p>
+<p>ByteBuffer数组构造了一个DexPathList，可用于内存中的DEX文件。</p>
+<h3 id="DelegateLastClassLoader"><a href="#DelegateLastClassLoader" class="headerlink" title="DelegateLastClassLoader"></a>DelegateLastClassLoader</h3><p>DelegateLastClassLoader是在API27时新增的类加载器，继承自PathClassLoader。</p>
+<p>DelegateLastClassLoader实行最后查找策略。使用DelegateLastClassLoader来加载每个类或资源，使用一下查找顺序：</p>
+<ol>
+<li>判断是否已经加载过该类。</li>
+<li>搜索此类的类加载器是否加载过这个类</li>
+<li>搜索与此类加载器的dexPath关联的dex文件列表，委托给指定的父类对象加载</li>
+</ol>
+<h1 id="简述ClassLoader的双亲委托模型"><a href="#简述ClassLoader的双亲委托模型" class="headerlink" title="简述ClassLoader的双亲委托模型"></a>简述ClassLoader的双亲委托模型</h1><p>从 jdk 中的 ClassLoader 类的构造方法，其需要传入一个父类加载器，并持有该引用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="title">ClassLoader</span><span class="params">(ClassLoader parent)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>(checkCreateClassLoader(), parent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当类加载器收到加载器或资源的请求是，通常都是先委托给父类加载器加载，也就是说只有当父类加载器找不到指定的类或资源时，自身才会执行实际的类加载过程，具体加载过程如下：</p>
+<ol>
+<li>源 ClassLoader 先判断该 Class 是否已加载，如果已加载，则直接返回 Class，如果没有则委托给父类加载器。</li>
+<li>父类加载器判断是否加载过程该 Class，如果已加载，则直接返回 Class，如果没有则委托给祖父类加载器。</li>
+<li>以此类推，直到祖父类加载器（引用类加载器）。</li>
+<li>始祖类加载器判断是否加载过改 Class，如果已加载，则直接返回 Class，如果没有则尝试从其对应的类路径下寻找 class 字节码文件并加载。如果加载成功，则直接返回 Class，如果载入失败，则委托给始祖类加载器的子类加载器。</li>
+<li>始祖类加载器的子类加载器尝试从其对应的类路径下寻找 class 字节码文件并载入。如果载入成功，则直接返回 Class，如果贼如失败，则委托给始祖加载器的孙类加载器。</li>
+<li>以此类推，直到源 ClassLoader。</li>
+<li>源 ClassLoader 尝试从其对应的类路径下寻找 class 字节码文件并载入。如果载入成功，则直接返回 Class，如果载入失败，源 ClassLoader 不会再委托其子类加载器，而是抛出异常</li>
+</ol>
+<p>以下用图示的方式，更清楚的展示类加载的过程：</p>
+<p><img src="http://otqmfc4ah.bkt.clouddn.com/classloader_arch.gif" alt="classloader"></p>
+<h1 id="简述双亲委托模型在热修复领域的应用"><a href="#简述双亲委托模型在热修复领域的应用" class="headerlink" title="简述双亲委托模型在热修复领域的应用"></a>简述双亲委托模型在热修复领域的应用</h1><p>一个ClassLoader可以包含多个dex文件，每个dex文件是一个Element，多个dex文件排列成一个有序的数组dexElements，ClassLoader会按照顺序依次遍历数组加载类，根据双亲委托模型，若一个dex已经被加载过，则不会再加载之后重复的dex，因此，只要把有问题的类修复后，放到一个单独的dex，通过反射插入到dexElements数组的最前面，这样在ClassLoader加载的时候会先加载已经修复好的dex，后面有bug的dex就不会被加载了。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt="bleedyao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/path/to/alipay-reward-image.png" alt="bleedyao 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android-学习计划/" rel="tag"># Android-学习计划</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/31/useable-technology/" rel="next" title="工作中使用的技巧收录">
+                <i class="fa fa-chevron-left"></i> 工作中使用的技巧收录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -365,6 +576,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -385,8 +603,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -460,6 +687,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android中有哪几种ClassLoader？它们的作用和区别是什么？"><span class="nav-number">1.</span> <span class="nav-text">Android中有哪几种ClassLoader？它们的作用和区别是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BaseDexClassLoader-及其子类"><span class="nav-number">1.1.</span> <span class="nav-text">BaseDexClassLoader 及其子类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PathClassLoader"><span class="nav-number">1.1.1.</span> <span class="nav-text">PathClassLoader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DexClassLoader"><span class="nav-number">1.1.2.</span> <span class="nav-text">DexClassLoader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InMemoryDexClassLoader"><span class="nav-number">1.1.3.</span> <span class="nav-text">InMemoryDexClassLoader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DelegateLastClassLoader"><span class="nav-number">1.1.4.</span> <span class="nav-text">DelegateLastClassLoader</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简述ClassLoader的双亲委托模型"><span class="nav-number">2.</span> <span class="nav-text">简述ClassLoader的双亲委托模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简述双亲委托模型在热修复领域的应用"><span class="nav-number">3.</span> <span class="nav-text">简述双亲委托模型在热修复领域的应用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
