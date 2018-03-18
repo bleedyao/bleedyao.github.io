@@ -335,6 +335,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/binder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/17/binder/" itemprop="url">Android 中的 Binder</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T08:15:20+08:00">
+                2018-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/binder/" itemprop="url" rel="index">
+                    <span itemprop="name">Binder</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/17/binder/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/17/binder/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/17/binder/" class="leancloud_visitors" data-flag-title="Android 中的 Binder">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="什么是Binder？"><a href="#什么是Binder？" class="headerlink" title="什么是Binder？"></a>什么是Binder？</h1><p>作为远程对象的基类，通过 IBinder 被定义为一个轻量级远程过程调用机制（RPC）的核心部分。这个类一个是 IBinder 的实现类，提供了这种对象的标准的本地实现。</p>
+<p>绝大部分开发者不是直接实现这个类，而是为了描述所需接口使用 aidl 工具，使用它生成合适的 Binder 子类。然而你也可以继承 Binder 类实现自定义 RPC，或者作为能够在进程间共享的媒介使用简单实例化的原生 Binder 对象。</p>
+<p>这个类只是一个原始 IPC 的基础；它没有影响一个应用的生命周期，只要进程在运行时创建了 Binder，它就有效。为了正确的使用它，你必须在高级的让系统知道你的进程应该保持运行的应该组件（Service，Activity 或 ContentProvider）的上下文中工作。</p>
+<p>你必须关注你的进程可能消失的情况，这种情况下，需要你在进程再次开始的时候，重新创建和连接 Binder。例如：如果你在一个 Activity 中使用 Binder，在 Activity 没有显示的时候，你的 Activity 进程可能随时被杀死；如果Activity是之后重新创建的，你需要创建一个新的 Binder，并且把它放回所在的位置；你需要注意，你的进程可能是通过其他原因（比如接受广播）启动，这种情况下，需要重新创建Activity，并且新建一个新的 Binder 对象。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/17/binder/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/classloader-in-android/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1885,189 +2055,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/about-startActivityForResult/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bleedyao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚陆浩的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/05/about-startActivityForResult/" itemprop="url">关于 startActivityForResult</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-05T16:57:22+08:00">
-                2017-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/activity/" itemprop="url" rel="index">
-                    <span itemprop="name">Activity</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/05/about-startActivityForResult/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/05/about-startActivityForResult/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/12/05/about-startActivityForResult/" class="leancloud_visitors" data-flag-title="关于 startActivityForResult">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？"><a href="#startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？" class="headerlink" title="startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？"></a>startActivityForResult的使用场景是什么？onActivityResult回调里面的resultCode和requestCode含义是什么？</h1><ul>
-<li>场景：如果你希望启动另一个 Activity 并接受返回的结果，需要调用 startActivityForResult() 方法。例如：你启动照相应用并需要接收拍摄的照片最为结果；你启动联系人应用并需要接收联系人详情信息最为结果。</li>
-<li>requestCode：当你想启动一个带有返回结果的 Activity 的时候，你需要传递额外的参数，这就是调用 startActivityForResult() 时，需要传递的 requestCode —— 请求码，该参数用于识别的你的请求的请求码。当你收到 Intent 结果是，回调会提供相同的请求码，以便你的应用可以正确识别结果并确定如何处理它。</li>
-<li>resultCode：当用户完成后续 Activity 并返回时，系统会调用你的 Activity 的 onActivityResult() 方法，该方法包括三个参数，其中一个就是 resultCode —— 结果码。如果操作成功，结果是 RESULT_OK；如果用户退出或操作处于某种原因失败，则结果是 RESULT_CANCELED。</li>
-</ul>
-<h1 id="Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？"><a href="#Activity-A启动B的时候，在B中何时该执行setResult-？setResult可以位于Activity的finish方法之后吗？" class="headerlink" title="Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？"></a>Activity A启动B的时候，在B中何时该执行setResult ？setResult可以位于Activity的finish方法之后吗？</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/05/about-startActivityForResult/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2122,7 +2109,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2144,7 +2131,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

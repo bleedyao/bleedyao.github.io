@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android-学习计划," />
 
 
 
@@ -105,16 +105,19 @@
 
 
 
-<meta name="description" content="download the Weex Playground in https://weex.apache.org/playground.html Adb install Your weex_playgroud.apk. The apk found with the Playgroup in the tag of tools on the header You can interface the s">
-<meta property="og:type" content="website">
-<meta property="og:title" content="姚陆浩的博客">
-<meta property="og:url" content="http://yoursite.com/article/draft_weex.html">
+<meta name="description" content="什么是Binder？作为远程对象的基类，通过 IBinder 被定义为一个轻量级远程过程调用机制（RPC）的核心部分。这个类一个是 IBinder 的实现类，提供了这种对象的标准的本地实现。 绝大部分开发者不是直接实现这个类，而是为了描述所需接口使用 aidl 工具，使用它生成合适的 Binder 子类。然而你也可以继承 Binder 类实现自定义 RPC，或者作为能够在进程间共享的媒介使用简单实">
+<meta name="keywords" content="Android-学习计划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 中的 Binder">
+<meta property="og:url" content="http://yoursite.com/2018/03/17/binder/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="download the Weex Playground in https://weex.apache.org/playground.html Adb install Your weex_playgroud.apk. The apk found with the Playgroup in the tag of tools on the header You can interface the s">
-<meta property="og:updated_time" content="2018-01-10T12:32:01.814Z">
+<meta property="og:description" content="什么是Binder？作为远程对象的基类，通过 IBinder 被定义为一个轻量级远程过程调用机制（RPC）的核心部分。这个类一个是 IBinder 的实现类，提供了这种对象的标准的本地实现。 绝大部分开发者不是直接实现这个类，而是为了描述所需接口使用 aidl 工具，使用它生成合适的 Binder 子类。然而你也可以继承 Binder 类实现自定义 RPC，或者作为能够在进程间共享的媒介使用简单实">
+<meta property="og:image" content="http://otqmfc4ah.bkt.clouddn.com/IPC-Binder.jpg">
+<meta property="og:updated_time" content="2018-03-17T00:15:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="姚陆浩的博客">
-<meta name="twitter:description" content="download the Weex Playground in https://weex.apache.org/playground.html Adb install Your weex_playgroud.apk. The apk found with the Playgroup in the tag of tools on the header You can interface the s">
+<meta name="twitter:title" content="Android 中的 Binder">
+<meta name="twitter:description" content="什么是Binder？作为远程对象的基类，通过 IBinder 被定义为一个轻量级远程过程调用机制（RPC）的核心部分。这个类一个是 IBinder 的实现类，提供了这种对象的标准的本地实现。 绝大部分开发者不是直接实现这个类，而是为了描述所需接口使用 aidl 工具，使用它生成合适的 Binder 子类。然而你也可以继承 Binder 类实现自定义 RPC，或者作为能够在进程间共享的媒介使用简单实">
+<meta name="twitter:image" content="http://otqmfc4ah.bkt.clouddn.com/IPC-Binder.jpg">
 
 
 
@@ -144,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/article/draft_weex.html"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/17/binder/"/>
 
 
 
 
 
-  <title> | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Android 中的 Binder | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -323,40 +326,231 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/binder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <ol>
-<li>download the Weex Playground in <a href="https://weex.apache.org/playground.html" target="_blank" rel="external">https://weex.apache.org/playground.html</a></li>
-<li>Adb install <em>Your weex_playgroud.apk</em>. The apk found with the Playgroup in the tag of tools on the header</li>
-<li>You can interface the sample UI with dotWe<a href="http://dotwe.org/vue" target="_blank" rel="external"></a> based the vue, see the code.</li>
-<li>cd awesome-project, npm install</li>
-<li>Weex 语法部分，可以直接参考<a href="https://vuejs.org/v2/guide/" target="_blank" rel="external">Vue Guide</a></li>
+          <h1 class="post-title" itemprop="name headline">Android 中的 Binder</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T08:15:20+08:00">
+                2018-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/binder/" itemprop="url" rel="index">
+                    <span itemprop="name">Binder</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/17/binder/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/17/binder/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/17/binder/" class="leancloud_visitors" data-flag-title="Android 中的 Binder">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="什么是Binder？"><a href="#什么是Binder？" class="headerlink" title="什么是Binder？"></a>什么是Binder？</h1><p>作为远程对象的基类，通过 IBinder 被定义为一个轻量级远程过程调用机制（RPC）的核心部分。这个类一个是 IBinder 的实现类，提供了这种对象的标准的本地实现。</p>
+<p>绝大部分开发者不是直接实现这个类，而是为了描述所需接口使用 aidl 工具，使用它生成合适的 Binder 子类。然而你也可以继承 Binder 类实现自定义 RPC，或者作为能够在进程间共享的媒介使用简单实例化的原生 Binder 对象。</p>
+<p>这个类只是一个原始 IPC 的基础；它没有影响一个应用的生命周期，只要进程在运行时创建了 Binder，它就有效。为了正确的使用它，你必须在高级的让系统知道你的进程应该保持运行的应该组件（Service，Activity 或 ContentProvider）的上下文中工作。</p>
+<p>你必须关注你的进程可能消失的情况，这种情况下，需要你在进程再次开始的时候，重新创建和连接 Binder。例如：如果你在一个 Activity 中使用 Binder，在 Activity 没有显示的时候，你的 Activity 进程可能随时被杀死；如果Activity是之后重新创建的，你需要创建一个新的 Binder，并且把它放回所在的位置；你需要注意，你的进程可能是通过其他原因（比如接受广播）启动，这种情况下，需要重新创建Activity，并且新建一个新的 Binder 对象。</p>
+<a id="more"></a>
+<h1 id="简单描述下它的工作过程和使用场景"><a href="#简单描述下它的工作过程和使用场景" class="headerlink" title="简单描述下它的工作过程和使用场景"></a>简单描述下它的工作过程和使用场景</h1><p>Binder 通信采用C/S架构，从组建角度来说，包含Client，Server，ServiceManager以及 binder 驱动，其中 ServiceManager 用于管理系统中的各种服务。架构图如下所示：</p>
+<p><img src="http://otqmfc4ah.bkt.clouddn.com/IPC-Binder.jpg" alt="IPC-Binder"></p>
+<p>可以看出无论是注册服务和获取服务的过程都需要 ServiceManager，需要注意的是此处的 ServiceMananger 是指 Native 层的 ServiceManager（C++），并非指 framework 层的 ServiceMananger（Java）。ServiceManager 是整个 Binder 通信机制的大管家，是 Android 进程间通信机制 Binder 的守护进程。当Service Manager启动之后，Client 端和 Server 端通信时都需要先回去 Service Manager 接口，才能开始通信服务。</p>
+<p>图中 Client/Server/ServiceManager 之间的相互通信都是基于 Binder 机制。既然基于 Binder 机制通信，那么同样也是 C/S 架构，则图中的 3 大步骤都是有相应的 Client 端与 server 端。</p>
+<ol>
+<li>注册服务（addService）：Server 进程要先注册 Service 到 ServiceManager。该过程：Server 是客户端，ServiceManager 是服务器。</li>
+<li>获取服务（getService）：Client 进程使用某个 Service 前，须先向 ServiceManager 中获取相应的 Server。该过程：Client 是客户端，ServiceManager 是服务器。</li>
+<li>使用服务器：Client 根据得到的 Service 信息建立与 Service 所在的 Server 进程通信的道路，然后就可以直接与 Service 交互。改过程 client 是客户端，server 是服务器。</li>
 </ol>
+<p>图中的 Client，Server，ServiceManger 之间交互都是虚线表示，是由于它们彼此之间不是直接交互的，而是都通过 Binder 驱动进行交互的，从而实现 IPC 通信方式。其中 Binder 驱动位于内核空间，Client，Server，ServiceManager 位于用户空间。Binder 驱动和 ServiceManager 可以看做是 Android 平台的基础架构，而 Client 和 Server 是 Android 的应用层，开发人员只需要自定义实现 Client、Server 端，借助 Android 的基本平台架构便可以直接进行 IPC 通信。</p>
+<p>应用场景一般为有一个独立运行的Service端，从客户端（一个独立进程）访问Service端（另一个独立进程），例如可以在后台运行的音乐播放Service，以及音乐播放控制界面(客户端）。</p>
 
-        
-      </div>
-      
-      
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt="bleedyao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/path/to/alipay-reward-image.png" alt="bleedyao 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android-学习计划/" rel="tag"># Android-学习计划</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/14/classloader-in-android/" rel="next" title="Android中的ClassLoader">
+                <i class="fa fa-chevron-left"></i> Android中的ClassLoader
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -392,8 +586,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -467,6 +670,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Binder？"><span class="nav-number">1.</span> <span class="nav-text">什么是Binder？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单描述下它的工作过程和使用场景"><span class="nav-number">2.</span> <span class="nav-text">简单描述下它的工作过程和使用场景</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
