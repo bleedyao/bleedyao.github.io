@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -105,15 +105,17 @@
 
 
 
-<meta name="description" content="时间考验一切，经得起时间考验的就为人所信仰">
-<meta property="og:type" content="website">
-<meta property="og:title" content="姚陆浩的博客">
-<meta property="og:url" content="http://yoursite.com/tags/资源/index.html">
+<meta name="description" content="什么是 AIDLAIDL（Android 接口定义语言）与你使用过的其他 IDL 类似。 它允许你在定义在客户端和服务器两端都识别的程序接口，为的是它们可以互相通过 IPC 机制通信。在 Android 中，一个进程正常情况下不能访问另一个进程的内存。换句话说，它们需要解析它们的对象成为操作系统能够理解的原始类型，并且为你序列化边界访问对象。代码的序列化操作编写是很繁琐的，因此 Android 为">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 中的 AIDL">
+<meta property="og:url" content="http://yoursite.com/2018/05/20/aidl-in-android/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta property="og:description" content="什么是 AIDLAIDL（Android 接口定义语言）与你使用过的其他 IDL 类似。 它允许你在定义在客户端和服务器两端都识别的程序接口，为的是它们可以互相通过 IPC 机制通信。在 Android 中，一个进程正常情况下不能访问另一个进程的内存。换句话说，它们需要解析它们的对象成为操作系统能够理解的原始类型，并且为你序列化边界访问对象。代码的序列化操作编写是很繁琐的，因此 Android 为">
+<meta property="og:updated_time" content="2018-05-20T03:23:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="姚陆浩的博客">
-<meta name="twitter:description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta name="twitter:title" content="Android 中的 AIDL">
+<meta name="twitter:description" content="什么是 AIDLAIDL（Android 接口定义语言）与你使用过的其他 IDL 类似。 它允许你在定义在客户端和服务器两端都识别的程序接口，为的是它们可以互相通过 IPC 机制通信。在 Android 中，一个进程正常情况下不能访问另一个进程的内存。换句话说，它们需要解析它们的对象成为操作系统能够理解的原始类型，并且为你序列化边界访问对象。代码的序列化操作编写是很繁琐的，因此 Android 为">
 
 
 
@@ -143,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/资源/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/20/aidl-in-android/"/>
 
 
 
 
 
-  <title>标签: 资源 | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Android 中的 AIDL | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -168,7 +170,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,54 +322,228 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>资源<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/20/aidl-in-android/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/03/28/source-in-the-net/" itemprop="url">
-              
-                <span itemprop="name">网络资源收集及分类</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Android 中的 AIDL</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-28T00:00:00+08:00"
-              content="2017-03-28" >
-          03-28
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T11:23:42+08:00">
+                2018-05-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/aidl/" itemprop="url" rel="index">
+                    <span itemprop="name">AIDL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/20/aidl-in-android/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/20/aidl-in-android/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/20/aidl-in-android/" class="leancloud_visitors" data-flag-title="Android 中的 AIDL">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="什么是-AIDL"><a href="#什么是-AIDL" class="headerlink" title="什么是 AIDL"></a>什么是 AIDL</h1><p>AIDL（Android 接口定义语言）与你使用过的其他 IDL 类似。 它允许你在定义在客户端和服务器两端都识别的程序接口，为的是它们可以互相通过 IPC 机制通信。在 Android 中，一个进程正常情况下不能访问另一个进程的内存。换句话说，它们需要解析它们的对象成为操作系统能够理解的原始类型，并且为你序列化边界访问对象。代码的序列化操作编写是很繁琐的，因此 Android 为你用 AIDL 封装了它。</p>
+<h1 id="使用-AIDL-的注意事项"><a href="#使用-AIDL-的注意事项" class="headerlink" title="使用 AIDL 的注意事项"></a>使用 AIDL 的注意事项</h1><p>如果你允许通过 IPC 机制访问你的服务的是来自不同的应用客户端，并且需要在你的服务里处理多进程，使用 AIDL 才是有必要的。如果你不需要执行并发 IPC 访问不同应用，你应该创建实现了 Binder 的自定义接口，或者如果你需要执行 IPC 但是不需要处理多线程，这种情况下，使用 Messenger 实现你的接口。不管怎样，在实现 AIDL 之前，确保你理解绑定服务。</p>
+<a id="more"></a>
+<h1 id="AIDL-调用过程"><a href="#AIDL-调用过程" class="headerlink" title="AIDL 调用过程"></a>AIDL 调用过程</h1><p>在你开始设计 AIDL 接口之前，要注意 AIDL 接口调用是直接方法调用。你不用假设调用发生在线程中。在本地进程和在远程进程中一个线程调用情况略有不同，具体如下：</p>
+<ul>
+<li>来自本地进程的调用在发起调用的同一线程内执行。如果该线程是您的主 UI 线程，则该线程继续在 AIDL 接口中执行。 如果该线程是其他线程，则其便是在服务中执行您的代码的线程。 因此，只有在本地线程访问服务时，您才能完全控制哪些线程在服务中执行（但如果真是这种情况，您根本不应该使用 AIDL，而是应该通过<a href="https://developer.android.com/guide/components/bound-services.html#Binder" target="_blank" rel="external">实现 Binder 类</a>创建接口）。</li>
+<li>来自远程进程的调用分派自平台在您的自有进程内部维护的线程池。 您必须为来自未知线程的多次并发传入调用做好准备。 换言之，AIDL 接口的实现必须是完全线程安全实现。</li>
+<li><code>oneway</code> 关键字用于修改远程调用的行为。使用该关键字时，远程调用不会阻塞；它只是发送事务数据并立即返回。接口的实现最终接收此调用时，是以正常远程调用形式将其作为来自 <code>Binder</code> 线程池的常规调用进行接收。 如果 <code>oneway</code> 用于本地调用，则不会有任何影响，调用仍是同步调用。</li>
+</ul>
+<h1 id="AIDL-调用过程-1"><a href="#AIDL-调用过程-1" class="headerlink" title="AIDL 调用过程"></a>AIDL 调用过程</h1><p>默认情况下，本地进程下， AIDL 调用是同步的；远程进程下，通过使用关键字 <code>oneway</code> 可以指定 AIDL 为异步调用。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt="bleedyao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/path/to/alipay-reward-image.png" alt="bleedyao 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/06/the-process-of-activiy-launch/" rel="next" title="从源码的角度描述 Activity 的启动模式">
+                <i class="fa fa-chevron-left"></i> 从源码的角度描述 Activity 的启动模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -375,6 +551,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -395,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -470,6 +662,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是-AIDL"><span class="nav-number">1.</span> <span class="nav-text">什么是 AIDL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-AIDL-的注意事项"><span class="nav-number">2.</span> <span class="nav-text">使用 AIDL 的注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AIDL-调用过程"><span class="nav-number">3.</span> <span class="nav-text">AIDL 调用过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AIDL-调用过程-1"><span class="nav-number">4.</span> <span class="nav-text">AIDL 调用过程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -644,6 +852,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
