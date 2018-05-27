@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="总结," />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -105,17 +105,17 @@
 
 
 
-<meta name="description" content="前言今天是 2017 年最后一个工作日，时间过得真快，一年的时间就在我的眼前这样的溜走了，这一年发生了很多事情，对我也有很大的触动，也可以这么说，这一年我成长了很多。 工作记得去年我还在教 java 的知识，做教案，自己学习，为的是让我的学生能通过我的教学，掌握他们将来吃饭的工具。但是，这也暴露出一个问题，我利用我的所有时间总结经验，传授知识，然而我的成长点在哪里？我是在不断的放电，看不到自己的成">
-<meta name="keywords" content="总结">
+<meta name="description" content="线程池的概念线程池(thread pool)：一种线程使用模式。线程过多会带来调度开销，进而影响缓存局部性和整体性能。而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。这避免了在处理短时间任务时创建与销毁线程的代价。线程池不仅能够保证内核的充分利用，还能防止过分调度。可用线程数量应该取决于可用的并发处理器、处理器内核、内存、网络sockets等的数量。 例如，线程数一般取cpu数量+2">
+<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2017 年终总结">
-<meta property="og:url" content="http://yoursite.com/2017/12/29/2017-final-summary/index.html">
+<meta property="og:title" content="Android 中的线程池">
+<meta property="og:url" content="http://yoursite.com/2018/05/27/threadpool-in-android/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="前言今天是 2017 年最后一个工作日，时间过得真快，一年的时间就在我的眼前这样的溜走了，这一年发生了很多事情，对我也有很大的触动，也可以这么说，这一年我成长了很多。 工作记得去年我还在教 java 的知识，做教案，自己学习，为的是让我的学生能通过我的教学，掌握他们将来吃饭的工具。但是，这也暴露出一个问题，我利用我的所有时间总结经验，传授知识，然而我的成长点在哪里？我是在不断的放电，看不到自己的成">
-<meta property="og:updated_time" content="2018-01-02T06:43:27.481Z">
+<meta property="og:description" content="线程池的概念线程池(thread pool)：一种线程使用模式。线程过多会带来调度开销，进而影响缓存局部性和整体性能。而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。这避免了在处理短时间任务时创建与销毁线程的代价。线程池不仅能够保证内核的充分利用，还能防止过分调度。可用线程数量应该取决于可用的并发处理器、处理器内核、内存、网络sockets等的数量。 例如，线程数一般取cpu数量+2">
+<meta property="og:updated_time" content="2018-05-27T02:59:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2017 年终总结">
-<meta name="twitter:description" content="前言今天是 2017 年最后一个工作日，时间过得真快，一年的时间就在我的眼前这样的溜走了，这一年发生了很多事情，对我也有很大的触动，也可以这么说，这一年我成长了很多。 工作记得去年我还在教 java 的知识，做教案，自己学习，为的是让我的学生能通过我的教学，掌握他们将来吃饭的工具。但是，这也暴露出一个问题，我利用我的所有时间总结经验，传授知识，然而我的成长点在哪里？我是在不断的放电，看不到自己的成">
+<meta name="twitter:title" content="Android 中的线程池">
+<meta name="twitter:description" content="线程池的概念线程池(thread pool)：一种线程使用模式。线程过多会带来调度开销，进而影响缓存局部性和整体性能。而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。这避免了在处理短时间任务时创建与销毁线程的代价。线程池不仅能够保证内核的充分利用，还能防止过分调度。可用线程数量应该取决于可用的并发处理器、处理器内核、内存、网络sockets等的数量。 例如，线程数一般取cpu数量+2">
 
 
 
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/29/2017-final-summary/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/27/threadpool-in-android/"/>
 
 
 
 
 
-  <title>2017 年终总结 | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Android 中的线程池 | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/2017-final-summary/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/27/threadpool-in-android/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bleedyao">
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2017 年终总结</h1>
+          <h1 class="post-title" itemprop="name headline">Android 中的线程池</h1>
         
 
         <div class="post-meta">
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T09:55:13+08:00">
-                2017-12-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T10:59:27+08:00">
+                2018-05-27
               </time>
             
 
@@ -388,8 +388,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/年终总结/" itemprop="url" rel="index">
-                    <span itemprop="name">年终总结</span>
+                  <a href="/categories/threadpool/" itemprop="url" rel="index">
+                    <span itemprop="name">ThreadPool</span>
                   </a>
                 </span>
 
@@ -406,8 +406,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/29/2017-final-summary/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/29/2017-final-summary/" itemprop="commentCount"></span>
+                <a href="/2018/05/27/threadpool-in-android/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/27/threadpool-in-android/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -415,7 +415,7 @@
 
           
           
-             <span id="/2017/12/29/2017-final-summary/" class="leancloud_visitors" data-flag-title="2017 年终总结">
+             <span id="/2018/05/27/threadpool-in-android/" class="leancloud_visitors" data-flag-title="Android 中的线程池">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -446,18 +446,35 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天是 2017 年最后一个工作日，时间过得真快，一年的时间就在我的眼前这样的溜走了，这一年发生了很多事情，对我也有很大的触动，也可以这么说，这一年我成长了很多。</p>
-<h1 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h1><p>记得去年我还在教 java 的知识，做教案，自己学习，为的是让我的学生能通过我的教学，掌握他们将来吃饭的工具。但是，这也暴露出一个问题，我利用我的所有时间总结经验，传授知识，然而我的成长点在哪里？我是在不断的放电，看不到自己的成长点在哪里。</p>
-<p>我觉得我的青春不应该浪费在讲台，而应该投入到实际的生产实践中去。因此，今年的年初，我完成了这一职业上的转型。</p>
-<p>来到公司以后，可以说成长速度飞快，做一款 APP 的过程中，发现问题，解决问题，苦思冥想，绞尽脑汁，这是我想要的工作状态。这一年，项目基本上一个接着一个的，比较紧密，过得比较充实，我很满意。</p>
+        <h1 id="线程池的概念"><a href="#线程池的概念" class="headerlink" title="线程池的概念"></a>线程池的概念</h1><p>线程池(thread pool)：一种<strong>线程</strong>使用模式。线程过多会带来调度开销，进而影响缓存局部性和整体性能。而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。这避免了在处理短时间任务时创建与销毁线程的代价。线程池不仅能够保证内核的充分利用，还能防止过分调度。可用线程数量应该取决于可用的并发处理器、处理器内核、内存、网络sockets等的数量。 例如，线程数一般取cpu数量+2比较合适，线程数过多会导致额外的线程切换开销。</p>
+<p>任务调度以执行线程的常见方法是使用同步队列，称作任务队列。池中的线程等待队列中的任务，并把执行完的任务放入完成队列中。</p>
+<h1 id="Android-中的线程池有哪些？"><a href="#Android-中的线程池有哪些？" class="headerlink" title="Android 中的线程池有哪些？"></a>Android 中的线程池有哪些？</h1><p>Android 中的线程池的概念来源于 Java 中的 Executor，executor 是一个接口，真正的线程池的实现为 ThreadPoolExecutor。ThreadPoolExecutor 提供了一系列参数来配置线程池，通过不同的参数可以创建不同的线程池。</p>
 <a id="more"></a>
-<h1 id="社交"><a href="#社交" class="headerlink" title="社交"></a>社交</h1><p>这一年，我开始关注技术圈的一些大牛，看看他们每天在干什么。于是，今年有幸加入了 stormzhang 的知识星球，同时也跟上了消息的最前沿，很多消息，可以第一时间得知，可以提前做准备，技术方向也好，投资也好，都是和我有着切身关系的事件。因此，这是我踏入技术圈的一个新的起点，也是我成长的目标，这是这一年我最大的一个收获。当然我已经续费下一年的会员了，会继续追随，把花出去的前赚回来。</p>
-<p>另外，年底的时候加入了任玉刚的知识星球，是为了学习技术，问一下高深的问题，增进技术。</p>
-<p>stormzhang，郭霖，任玉刚都是和我同岁，和人家相比在技术上，我还有很大的差距，所以不努力可能以后就没有饭吃了。</p>
-<p>在技术上，我的目标就是不要和这些大牛们拉开差距，这就是明年的目标吧。</p>
-<h1 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h1><p>今年还有一大变化，就是我从两个人的世界回归到了一个人的世界，这是受现实所迫。经历了此事，我看清楚了自己的处境，我的想法也更加明确：作为一个在北京从小长到大的，学习成绩良好，做人谦虚不张扬，踏实本分的大男孩，应该去寻找生活在相同环境下，合得来的女孩，仅此而已。</p>
-<p>话多无益，命数自有天定，我又何须多言，一切自有天意。</p>
-<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>2018 年，我给自己定下的目标很明确：成为 Android 高级工程师！就是这么简单，就是这么粗暴，哈哈。</p>
+<p>为了使在很广泛的情境下可以利用，ThreadPoolExecutor 提供了很多可调整参数和可扩展的回调。然而，强别建议编程人员使用更方便的 Executor 工厂方法：</p>
+<ul>
+<li>newCacheTreadPool()（无限制的线程池，自动线程回收）</li>
+<li>newFixedThreadPool(int)（固定大小线程池）</li>
+<li>newSingleThreadExecutor()（单个后台线程）</li>
+<li>newScheduledThreadPool()（核心线程数固定，非核心线程数无限大的线程池）</li>
+</ul>
+<p>接下来，当手动配置和调用设个 ThreadPoolExecutor 会使用的下面的信息</p>
+<h2 id="核心和最大线程池大小"><a href="#核心和最大线程池大小" class="headerlink" title="核心和最大线程池大小"></a>核心和最大线程池大小</h2><p>ThreadPoolExecutor 根据核心线程大小（见 <a href="https://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor.html#getCorePoolSize(" target="_blank" rel="external">getCorePoolSize()</a>)）和最大线程大小（见 <a href="https://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor.html#getMaximumPoolSize(" target="_blank" rel="external">getMaximumPoolSize()</a>) 的设置边界来调整线程池的大小。当一个新的任务在 <a href="https://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor.html#execute(java.lang.Runnable" target="_blank" rel="external">execute(Runnable)</a> 方法中提交，并且此时正在运行的线程数量小于核心线程数量，那么会创建一个新的线程处理请求，即使其他线程处于闲置状态。如果有大于核心线程数量，但小于最大线程数量的线程运行，此时如果队列已满，会闯将一个新的线程。通过设置核心线程数量等于最大线程数量，你就创建了一个固定大小的线程池。通过设置最大线程数量问理论上无限大的值，例如：<code>Integer.MAX_VALUE</code>，你可以让这个线程池容纳任意数量的并发任务。通常情况下，核心和最大线程池数量只在构造器中设置，但是它们也可以使用<code>setCorePoolSize(int)</code> 和 <code>setMaximumPoolSize(int)</code>动态改变。</p>
+<h2 id="根据需求构建"><a href="#根据需求构建" class="headerlink" title="根据需求构建"></a>根据需求构建</h2><p>默认情况下，核心线程只在收到新任务的时候初始化创建和开启线程，但是这一过程可以重写<code>prestartCoreThread()</code> 或 <code>prestartAllCoreThreads()</code>动态的使用线程池。如果你构建一个不是空队列的线程池，那么你可能需要提前开启线程。</p>
+<h2 id="创建新线程"><a href="#创建新线程" class="headerlink" title="创建新线程"></a>创建新线程</h2><p>新线程使用 <a href="https://developer.android.com/reference/java/util/concurrent/ThreadFactory.html" target="_blank" rel="external">ThreadFactory</a> 创建。如果没有指定，会使用 <a href="https://developer.android.com/reference/java/util/concurrent/Executors.html#defaultThreadFactory(" target="_blank" rel="external">defaultThreadFactory()</a>)，创建相同的 <code>ThreadGroup</code> 拥有相同优先级和非守护线程状态的线程。通过提供不同的 ThreadFactory，你可以改变线程的名字，线程组优先级，守护状态等。如果 ThreadFactory 调用 <code>newThread</code> 方法返回 null 时，ThreadFactory 创建线程会失败，此时 executor 会继续运行，但不能执行任何任务。线程应该拥有 “modifyThread” 的运行时权限。如果工作线程或其他线程池中的线程没有这个权限，系统将给与警告：配置更改可能无法及时生效，关闭线程池可能保持在终止可能尚未完成的状态。</p>
+<h1 id="线程池有什么区别"><a href="#线程池有什么区别" class="headerlink" title="线程池有什么区别"></a>线程池有什么区别</h1><h2 id="FixedThreadPool"><a href="#FixedThreadPool" class="headerlink" title="FixedThreadPool"></a>FixedThreadPool</h2><p>它是一种线程数量固定的线程池，线程处于闲置状态时，它们并不会被回收，除非线程池被关闭了。当所有的线程都处于活动状态时，新任务都会处于等待状态，直到有线程空闲出来。由于 FixedThreadPool 只有核心线程并且这些核心线程不会被回收，<strong>这意味着它能够更加快速的响应外界的请求</strong>。newFixedThreadPool 方法的实现如下，可以发现 FixedThreadPool 中只有核心线程并且这些核心线程没有超时机制，另外任务队列也是没有大小限制的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newFixedThreadPool</span><span class="params">(<span class="keyword">int</span> nThreads)</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(nThreads, nThreads, <span class="number">0L</span>, TimeUnit.MILLISECONDS, <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="CachedThreadPool"><a href="#CachedThreadPool" class="headerlink" title="CachedThreadPool"></a>CachedThreadPool</h2><p>通过 Executors 的 newCachedThreadPool 方法创建。它是一种线程数量不定的线程池，它只有非核心线程，并且其最大线程数为 Integer.MAX_VALUE。由于 Integer.MAX_VALUE 是一个很大的数，实际上就相当于最大线程数可以无限大。当线程中的线程都处于活动状态时，线程池会创建新的线程来处理新任务，否则就会利用空闲的线程来处理新任务。线程池中的空闲线程都有超时机制，这个超时时长为 60 秒，超过 60 秒限制线程就会被回收。和 FixedThreadPool 不同的是，CachedThreadPool 的任务队列其实相当于一个空集合，这将导致任何任务都会立即被执行，因为在这种场景下 SynchronousQueue 是无法插入任务的。SynchronousQueue 是一个非常特殊的队列，在很多情况下可以把它简单理解为一个无法存储元素的队列。从 CachedThreadPool 的特性来看，这类线程比较适合<strong>执行大量的耗时较少的任务</strong>。当整个线程池都处于闲置状态时，线程池中的线程都会超时而被停止，这个时候 CachedThreadPool 之中实际上是没有任何线程的，它几乎是不占用任何系统资源的。newCachedThreadPool 方法实现如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newCachedThreadPool</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">0</span>, Integer.MAX_VALUE, <span class="number">60L</span>, TimeUnit.SECONDS, <span class="keyword">new</span> SynchronousQueue&lt;Runnable&gt;());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="ScheduledThreadPool"><a href="#ScheduledThreadPool" class="headerlink" title="ScheduledThreadPool"></a>ScheduledThreadPool</h2><p>通过 Executors 的 newScheduledThreadPool 方法创建。它的核心线程数量是固定的，而非核心线程数是没有限制的，并且当非核心线程限制时会被立即回收。ScheduledThreadPool 这类线程池主要用于<strong>执行定时任务和具有固定周期的重复任务</strong>， newScheduledThreadPool 方法的实现如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ScheduledExecutorService <span class="title">newScheduledThreadPool</span><span class="params">(<span class="keyword">int</span> corePoolSize)</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> ScheduledThreadPoolExecutor(corePoolSize);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">ScheduledThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>(corePoolSize, Integer.MAX_VALUE, <span class="number">0</span>, NANOSECONDS, <span class="keyword">new</span> DelayedWorkQueue());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="SingleThreadExecutor"><a href="#SingleThreadExecutor" class="headerlink" title="SingleThreadExecutor"></a>SingleThreadExecutor</h2><p>通过 Executors 的 newSingleThreadExecutor 方法创建。这类线程池内部只有一个核心线程，它确保所有的任务都在同一个线程中按顺序执行。SingleThreadExecutor 的意义在于同一所有的外接任务到一个线程中，这使得这些任务之间不需要处理线程同步的问题。SingleThreadExecutor 方法的实现如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newSingleThreadExecutor</span><span class="params">()</span> </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> FinalizableDelegatedExecutorService(<span class="keyword">new</span> ThreadPoolExecutor(<span class="number">1</span>, <span class="number">1</span>, <span class="number">0L</span>, TimeUnit.MILLISECONDS, <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;()));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="为什么要使用线程池"><a href="#为什么要使用线程池" class="headerlink" title="为什么要使用线程池"></a>为什么要使用线程池</h1><p>线程池有如下有点：</p>
+<ul>
+<li>重用线程池中的线程， 避免因为线程的创建和销毁所带来的性能开销.</li>
+<li>有效控制线程池中的最大并发数，避免大量线程之间因为相互抢占系统资源而导致的阻塞现象.</li>
+<li>能够对线程进行简单的管理，并提供定时执行和按照指定时间间隔循环执行等功能.</li>
+</ul>
 
       
     </div>
@@ -504,7 +521,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/总结/" rel="tag"># 总结</a>
+            <a href="/tags/android/" rel="tag"># Android</a>
           
         </div>
       
@@ -517,8 +534,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/27/parcelable-in-android/" rel="next" title="Parcelable 对比 Serializable">
-                <i class="fa fa-chevron-left"></i> Parcelable 对比 Serializable
+              <a href="/2018/05/20/aidl-in-android/" rel="next" title="Android 中的 AIDL">
+                <i class="fa fa-chevron-left"></i> Android 中的 AIDL
               </a>
             
           </div>
@@ -526,10 +543,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/07/java-reference-type/" rel="prev" title="Java 引用类型和单例设计模式">
-                Java 引用类型和单例设计模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -678,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工作"><span class="nav-number">2.</span> <span class="nav-text">工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#社交"><span class="nav-number">3.</span> <span class="nav-text">社交</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生活"><span class="nav-number">4.</span> <span class="nav-text">生活</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目标"><span class="nav-number">5.</span> <span class="nav-text">目标</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线程池的概念"><span class="nav-number">1.</span> <span class="nav-text">线程池的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-中的线程池有哪些？"><span class="nav-number">2.</span> <span class="nav-text">Android 中的线程池有哪些？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心和最大线程池大小"><span class="nav-number">2.1.</span> <span class="nav-text">核心和最大线程池大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据需求构建"><span class="nav-number">2.2.</span> <span class="nav-text">根据需求构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建新线程"><span class="nav-number">2.3.</span> <span class="nav-text">创建新线程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程池有什么区别"><span class="nav-number">3.</span> <span class="nav-text">线程池有什么区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FixedThreadPool"><span class="nav-number">3.1.</span> <span class="nav-text">FixedThreadPool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CachedThreadPool"><span class="nav-number">3.2.</span> <span class="nav-text">CachedThreadPool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ScheduledThreadPool"><span class="nav-number">3.3.</span> <span class="nav-text">ScheduledThreadPool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SingleThreadExecutor"><span class="nav-number">3.4.</span> <span class="nav-text">SingleThreadExecutor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要使用线程池"><span class="nav-number">4.</span> <span class="nav-text">为什么要使用线程池</span></a></li></ol></div>
             
 
           </div>
