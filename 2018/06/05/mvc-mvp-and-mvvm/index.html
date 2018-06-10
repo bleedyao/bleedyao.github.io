@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="深度学习," />
+  <meta name="keywords" content="设计模式," />
 
 
 
@@ -105,17 +105,21 @@
 
 
 
-<meta name="description" content="本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。 关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。 阅读内容我是本周二拿到《">
-<meta name="keywords" content="深度学习">
+<meta name="description" content="在开启一个新的项目的时候，最头痛的莫过于设计程序架构。我的 App 需要设计架构吗？答案是肯定的，原因在于，随着 App 不断的更新迭代，功能会越来越多，在添加功能的时候就会将代码都其在一起，会导致代码堆积，不易查找，结果便是开发进度越来越慢，更严重的可能导致无法继续迭代。 由此看来，应用的架构设计尤为重要，好的架构会使开发变得健壮，稳定以及拥有更快的开发进度。经过大量的实践，Android 中广">
+<meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="什么是机器学习">
-<meta property="og:url" content="http://yoursite.com/2017/12/02/what-is-the-machine-learning/index.html">
+<meta property="og:title" content="MVC、MVP和MVVM">
+<meta property="og:url" content="http://yoursite.com/2018/06/05/mvc-mvp-and-mvvm/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。 关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。 阅读内容我是本周二拿到《">
-<meta property="og:updated_time" content="2018-06-04T14:50:28.584Z">
+<meta property="og:description" content="在开启一个新的项目的时候，最头痛的莫过于设计程序架构。我的 App 需要设计架构吗？答案是肯定的，原因在于，随着 App 不断的更新迭代，功能会越来越多，在添加功能的时候就会将代码都其在一起，会导致代码堆积，不易查找，结果便是开发进度越来越慢，更严重的可能导致无法继续迭代。 由此看来，应用的架构设计尤为重要，好的架构会使开发变得健壮，稳定以及拥有更快的开发进度。经过大量的实践，Android 中广">
+<meta property="og:image" content="http://otqmfc4ah.bkt.clouddn.com/MVC_%E7%BB%93%E6%9E%84%E5%9B%BE.png">
+<meta property="og:image" content="http://otqmfc4ah.bkt.clouddn.com/MVP_%E7%BB%93%E6%9E%84%E5%9B%BE.png">
+<meta property="og:image" content="http://otqmfc4ah.bkt.clouddn.com/MVVM_%E7%BB%93%E6%9E%84%E5%9B%BE.png">
+<meta property="og:updated_time" content="2018-06-05T12:35:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="什么是机器学习">
-<meta name="twitter:description" content="本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。 关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。 阅读内容我是本周二拿到《">
+<meta name="twitter:title" content="MVC、MVP和MVVM">
+<meta name="twitter:description" content="在开启一个新的项目的时候，最头痛的莫过于设计程序架构。我的 App 需要设计架构吗？答案是肯定的，原因在于，随着 App 不断的更新迭代，功能会越来越多，在添加功能的时候就会将代码都其在一起，会导致代码堆积，不易查找，结果便是开发进度越来越慢，更严重的可能导致无法继续迭代。 由此看来，应用的架构设计尤为重要，好的架构会使开发变得健壮，稳定以及拥有更快的开发进度。经过大量的实践，Android 中广">
+<meta name="twitter:image" content="http://otqmfc4ah.bkt.clouddn.com/MVC_%E7%BB%93%E6%9E%84%E5%9B%BE.png">
 
 
 
@@ -145,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/02/what-is-the-machine-learning/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/05/mvc-mvp-and-mvvm/"/>
 
 
 
 
 
-  <title>什么是机器学习 | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>MVC、MVP和MVVM | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -336,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/what-is-the-machine-learning/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/mvc-mvp-and-mvvm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bleedyao">
@@ -353,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">什么是机器学习</h1>
+          <h1 class="post-title" itemprop="name headline">MVC、MVP和MVVM</h1>
         
 
         <div class="post-meta">
@@ -365,8 +369,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T14:12:45+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T20:35:48+08:00">
+                2018-06-05
               </time>
             
 
@@ -388,8 +392,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -406,8 +421,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/02/what-is-the-machine-learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/02/what-is-the-machine-learning/" itemprop="commentCount"></span>
+                <a href="/2018/06/05/mvc-mvp-and-mvvm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/05/mvc-mvp-and-mvvm/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -415,7 +430,7 @@
 
           
           
-             <span id="/2017/12/02/what-is-the-machine-learning/" class="leancloud_visitors" data-flag-title="什么是机器学习">
+             <span id="/2018/06/05/mvc-mvp-and-mvvm/" class="leancloud_visitors" data-flag-title="MVC、MVP和MVVM">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -446,62 +461,67 @@
       
 
       
-        <p>本系列博客为 《白话深度学习与 TensorFlow》一书的阅读分享，意图在于，用文字输出的形式检验本人对书籍的理解程度，本人为第一次接触深度学习，如对知识点理解不透彻或有误解，还请您不吝赐教，给与评论，加以指正。</p>
-<p>关于留言方式，您可以通过邮箱 yaoluhao@sina.com 联系到我；同时，我会在文章的最后附上简书的网址，以便于针对某一篇文章讨论，期待大家真挚反馈。</p>
-<h1 id="阅读内容"><a href="#阅读内容" class="headerlink" title="阅读内容"></a>阅读内容</h1><p>我是本周二拿到《白话深度学习与 TensorFlow》这本书，这个礼拜，我把前言和第一章认真的看完了，感觉这本书白话二字用的很好，书中列举的很多生活中的例子来类比一些比较难懂的概念，还列举了人工智能在生活中的一些好玩和使用的功能，让我们平缓的走入人工智能领域。</p>
+        <p>在开启一个新的项目的时候，最头痛的莫过于设计程序架构。我的 App 需要设计架构吗？答案是肯定的，原因在于，随着 App 不断的更新迭代，功能会越来越多，在添加功能的时候就会将代码都其在一起，会导致代码堆积，不易查找，结果便是开发进度越来越慢，更严重的可能导致无法继续迭代。</p>
+<p>由此看来，应用的架构设计尤为重要，好的架构会使开发变得健壮，稳定以及拥有更快的开发进度。经过大量的实践，Android 中广为人知的设计模式有 MVC、MVP 和 MVVM。</p>
+<p>那么今天我们来总结一下这些架构的结构，优缺点和使用场景。</p>
 <a id="more"></a>
-<h1 id="关于前言"><a href="#关于前言" class="headerlink" title="关于前言"></a>关于前言</h1><p>我们要阅读的是一本专业知识很强的书籍，就不能像读小说是的一目十行，一扫而过，而是要逐字逐句的去读，读完以后要细细品味，还要总结归纳，只有这样重视这本书，我们才能从书中汲取有用的知识，提高自己的价值。</p>
-<p>至于怎样重视一本书呢，当然是从前言开始阅读。每本书基本都有前言，前言虽然是写在书籍的最前边，但是很多作者都是最后才回去编写前言这一部分，这样的话，前言反而成为了本书的总结，我么在读前言的时候实际上是对本书的一个大致的了解，就像写书一样要先列提纲一样，这样在后边的阅读中思路会变得清晰，效果会更好。</p>
-<p>前言以 AlphaGo 以悬殊的比分击败了韩国著名九段围棋棋手，以及谷歌的机械狗和谷歌的无人驾驶汽车等智能产品，讲述了人工智能（以下称为 AI）给人们充满了惊喜，而人工智能最为核心的又是深度学习，并表明了深度学习会成为未来几十年比较火爆的研究方向。然而深度学习本身的复杂度之高，使得很多爱好者都望而却步。因此，作者就意图写这样一本浅显易懂的书，一步一步的带领读者周瑾深度学习的领域，所以，这本书就应运而生。</p>
-<h1 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h1><p>机器学习是深度学习当中的一门学科。书中讲述机器学习就类似人类学习一样，让机器通过学习，掌握一些比较复杂或高要求的工作，来代替由人类做起来比较花时间的事情。</p>
-<p>机器学习是历史的不断进化的产物，人类有别于动物的区别，在于人类会使用工具提高效率，随着计算机的计算能力越来越强，机器也在一定程度上参与了智能化的工作。</p>
-<p>之所以机器能智能化，其本质的原因是有算法在支撑。书中举例一个例子：把邮件分类城普遍邮件和垃圾邮件。</p>
-<p>机器是如何学会分类邮件呢？这几需要几个要素：</p>
-<ol>
-<li>样本</li>
-<li>模型</li>
-<li>验证</li>
-</ol>
-<p>其中：样本分为训练样本——提供机器学习，和验证样本——用于验证机器学习成果；模型我理解的就是算法。</p>
-<p>这种训练的过程称为有监督学习。</p>
-<p>既然有有监督学习，那一定有无监督学习了？当然要，后文提到了无监督学习是一种不需要人类干预，机器对样本进行识别，自己给样本分类，人类就等着收结果就好了，这是一种更高级的训练过程了。</p>
-<h2 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h2><p>聚类用具体事物来讲就是分类，是一种典型的 “无监督学习”，聚类的行为根源来源于人类。人类在认知事物的时候，一直都拥有容量性的问题，于是，人类开始对各种事物进行分类，这样有一个好处，就是我们可以将事物的特征以文字，或其他输出形式向所有人展示，当我们在看到类似的事物的时候，就可以辨别出这一事物是哪一类，这一类事物有哪些特征。</p>
-<p>我们想要的就是让机器为我们人类把事物进行分类，把人类从这一过程当中解放出来。这其中提到了两个算法：</p>
-<ol>
-<li>K-Means</li>
-<li>DBSCAN</li>
-</ol>
-<p>其基本思路用白话说就是是将事物抽象成数字，机器会对相近的数字归类。</p>
-<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>书中将回归是 ”有果索因“ 的过程，看完这一节以后我觉得这很像哲学中讲的，从现象到本质的过程。</p>
-<p>在机器学习领域，最常用的回归有两种：</p>
-<ol>
-<li>线性回归</li>
-<li>非线性回归</li>
-</ol>
-<p>不管是哪种回归，总结起来都是讲现实中的事物抽取成数字，从大量数据中抽取对应的函数，验证函数的准确性。</p>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>这一节中提到了两个比较重要的概念：</p>
-<ol>
-<li>召回率</li>
-<li>精确率</li>
-</ol>
-<p>其中，召回率是指在训练开始前的规定的数据中，判断出多少个正确答案，如：有 200 只猫，正确了 150 只，召回率为 150 / 200 = 75%，召回率可以理解为结果可用程度；精确率值得是指在训练结束后的数据中，判断出多少正确答案，如：结果判断出 200 只狗，其中只有 100 只是正确的，然而在训练样本中，只有 150 只狗的图片，那么，精确率为 100 / 200 = 50%。</p>
-<h2 id="综合应用"><a href="#综合应用" class="headerlink" title="综合应用"></a>综合应用</h2><p>这一节展示了机器学习在生活中的应用场景，为的是让我们开拓视野，增加认知。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>用一个概念总结了这一张所讲述的内容 —— 机器学习就是人类定义一定的计算机算法，让计算机根据数据的样本和一些人类的干预来总结并归纳器特征与特点，并用这些特征和特点与一定的学习目标形成映射关系，进而自动化地做出相应反映的过程。</p>
-<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>在文章的最后，列举一下这一节中出现的一些关键字，方便归纳本节内容：</p>
+<h1 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h1><p>在日常开发中，用户界面逻辑变化常常多余业务逻辑，PC 和 Web 开发者往往需要一种使用的分离用户界面的方法。MVC 模式解决了这一问题。</p>
 <ul>
-<li>AI (Artificial Intelligence，人工智能)</li>
-<li>训练样本</li>
-<li>训练</li>
-<li>分类模型</li>
-<li>验证</li>
-<li>有监督学习和无减速学习</li>
-<li>算法</li>
-<li>共性和孤立点</li>
-<li>线性回归和非线性回归</li>
-<li>伯努利分布</li>
-<li>召回率和精确率</li>
-<li>强化学习(reinforcement learning)</li>
+<li>Model：数据层，有管理业务逻辑和处理网络和数据 API 的能力。</li>
+<li>View：UI 层，从 Model 中获取数据，并将其可视化。</li>
+<li>Controller：逻辑层，接收用户的行为并且不要的时候更新 Model</li>
 </ul>
+<p><img src="http://otqmfc4ah.bkt.clouddn.com/MVC_%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="MVC 结构图"></p>
+<p>因此，这个说明 Controller 和 View 依赖于 Model：Controller 更新数据，View 获取数据。但是，这对当时的 PC 和 web 开发者最为重要：Model 是分离的并且可独立于 UI 进行测试。后来，有一些变种的 MVC 出现了。众所周知的一种，是 Model 是否是被动的关系，或者 Model 主动相应它的变化</p>
+<h2 id="Android-中的-MVC"><a href="#Android-中的-MVC" class="headerlink" title="Android 中的 MVC"></a>Android 中的 MVC</h2><p>在 2011 年左右，当 Android 开始变得越来越流行的时候，架构问题就自然而然的出现了。在那个时候 MVC 是最受欢迎的 UI 模式之一，开发者们也尝试应用 MVC 到 Android 中。</p>
+<p>如果你在 StackOverflow 上搜索像「如何在 Android 中应用 MVC」——在 Android 中最受欢迎问题之一，答案是一个 Activity 是 View 和 Controller 两个角色。回过头来看，这种声音简直令人惊讶！但是，在那个时候，主要的中心在于制作一个可测试的 Model，在 Android 平台上，通常 View 和 Controller 的实现选择取决于平台</p>
+<h2 id="应该如何在-Android-中应用-MVC"><a href="#应该如何在-Android-中应用-MVC" class="headerlink" title="应该如何在 Android 中应用 MVC"></a>应该如何在 Android 中应用 MVC</h2><p>现今，如何应用 MVC 设计模式的问题有了答案，这个答案是比较容易找到的。所有的 Activity，Fragment 和控件应该是 MVC 世界中的 View。Controller 应该是单独的类，这个类不继承也不使用任何 Android 的类，Model 也是如此。</p>
+<p>当连接 Controller 到 View 中时问题产生了，就是 Controller 需要告诉 View 更新。在被动模式的 MVC 架构中，Controller 需要持有一个 View 层的引用。考虑到测试的因素，最简单的做法是这样的，创建一个 BaseView 接口，Activity、Fragment 和控件都继承 BaseView。因此，Controller 要持有一个 BaseView 的引用。</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>MVC 设计模式高度支持所关注的分离问题。这个优点不仅增加了代码的可测试性，而且更容易扩展，实现新功能相当简单。</p>
+<p>Model 的所有类没有任何 Android 类的引用，并且便于单元测试。Controller 不继承也不实现 Android 任何类，并且持有 View 层的接口类型的引用。通过这种方式，Controller 单元测试也变得可能。</p>
+<p>如果 View 层的控件都遵守单一职责原则，那么他们的角色只是为每个用户事件更新 Controller 和只是展示从 Model 获取的数据，Model 没有实现任何业务逻辑。在这种情况下，UI 测试应该尽可能覆盖 View 的功能。</p>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p><strong>View 层依赖于 Controller 层和 Model 层</strong></p>
+<p>在复杂的控件中，依赖 Model 的 View 开始产生负面影响。为了在 View 层中最小化实现逻辑，Model 层应该为每个可展示的元素提供可测试的方法。在主动 Model 实现中，类和方法的数量成倍增长，观察者需要为每个数据类型提供方法。</p>
+<p>View 层强依赖 Controller 和 Model，在 UI 改变逻辑，需要在几个类中更新，降低了模式的灵活性。</p>
+<h1 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h1><p>以下是每个组件的角色：</p>
+<ul>
+<li>Model —— 数据层。处理业务逻辑和联系网络和数据库层的职责</li>
+<li>View —— UI 层。展示数据和接收 Presenter 中的用户操作。</li>
+<li>Presenter —— 从 Model 中获取数据，使用 UI 逻辑和管理 View 的状态，决定展示哪些内容以及相应从 View 发来的用户请求。</li>
+</ul>
+<p>这样，View 和 Presenter 紧密的工作在一起，他们需要有另一方的引用。为了用 JUnit 对 Presenter 做单元测试，View 是抽象的并且是使用的是一个接口。Presenter 和它相符的 View 的关系是定义在 Contract 接口中，<strong>这样代码更具有可读性，两个层级联系更加清晰。</strong></p>
+<p><img src="http://otqmfc4ah.bkt.clouddn.com/MVP_%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="MVP 结构图"></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>Model 工作在远程或本地数据资源，为了获取和保存数据。这是业务逻辑处理的地方。例如，当请求 Task 的列表时，Model 将尝试从本地数据获取它们。如果没有数据，它将访问网络，存储响应到本地资源，然后返回列表。</p>
+<p>通过 RxJava 的帮助完成任务的获取：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> Observable&lt;List&lt;Task&gt;&gt; getTasks()&#123; </div><div class="line">  ... </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Model 在本地和远程数据源的构造器接口中接收参数，使 Model 完全独立于任何Android 类，因此易于使用 JUnit 进行单元测试</p>
+<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><p>View 和 Presenter 一起显示数据，并通知 Presenter 用户的操作。</p>
+<p>所有 View 都实现相同的 BaseView 接口设置 Presenter。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BaseView</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setPresenter</span><span class="params">(T presenter)</span></span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>View 在 onResume中通过调用 Presenter 的 <code>subscribe</code> 方法通知 Presenter 准备好进行更新。View 在 onPause 中调用 <code>unsubscribe</code> 告诉 Presenter，View 不在对更新感兴趣。如果 View 的实现是一个 Android 自定义控件，那么 <code>subscribe</code> 和 <code>unsubscribe</code> 方法就必须在 <code>onAttachedToWindow</code> and <code>onDetachedFromWindow</code> 中调用。用户操作，像按钮点击，将触发 Presenter 中的相关类，这将决定接下来要发生什么事。</p>
+<h2 id="Presenter"><a href="#Presenter" class="headerlink" title="Presenter"></a>Presenter</h2><p>Presenter 和 它的相关 View 通过 Activity 创建。</p>
+<p>所有 Presenter 实现相同的 BasePresenter 接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BasePresenter</span> </span>&#123;</div><div class="line">      <span class="function"><span class="keyword">void</span> <span class="title">subscribe</span><span class="params">()</span></span>;</div><div class="line">      <span class="function"><span class="keyword">void</span> <span class="title">unsubscribe</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当 <code>subscribe</code> 方法被调用，Presenter 开始向 Model 层请求数据，然后将接收到的数据应用到 UI 逻辑中并且设置到 View 中。</p>
+<h1 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h1><ul>
+<li>降低耦合度</li>
+<li>模块指责划分</li>
+<li>利于测试驱动开发</li>
+<li>代码复用</li>
+<li>隐藏数据</li>
+<li>代码灵活</li>
+</ul>
+<h1 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h1><p>相比于 MVC 需要增加很多接口，因此比较适合较小的项目。</p>
+<h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><p>在 MVVM 设计模式中的主要角色，如下所示：</p>
+<ul>
+<li>View：通知 ViewModel 关于用户的操作</li>
+<li>ViewModel：暴露数据流关联 View</li>
+<li>DataModel：抽象数据源。ViewModel 和 DataModel 一起获取和保存数据。</li>
+</ul>
+<p>乍一看，MVVM 和 MVP 设计模式很像，因为它们俩在抽象 View 的状态和行为都做的很出色。Presenter 模型抽象了一个独立于指定用户界面平台的 View，MVVM 模式创建了简化事件驱动的用户界面编程。</p>
+<p>如果 MVP 设计模式意味着 Presenter 直接告诉 View 索要展示的内容，那么在 MVVM 中，ViewModel 暴露了 View 可以绑定的事件流。这样，ViewModel 不需要持有 View 的引用。这意味着所有 MVP 设计模式中需要的所有接口，都可以删掉了。</p>
+<p>View 也通知 ViewModel 不同的操作。MVVM 设计模式支持在 View 和 ViewModel 双向绑定，并且在 View 和 ViewModel 之间有多对一的关系。View 有 ViewModel 的引用，但 ViewModel 没有 View 的信息。数据的消费者应该知道生产者，但生产者 —— ViewModel —— 不知道也不关心消费的数据。</p>
+<p><img src="http://otqmfc4ah.bkt.clouddn.com/MVVM_%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="MVVM_结构图"></p>
 
       
     </div>
@@ -548,7 +568,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
           
         </div>
       
@@ -561,8 +581,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/30/activity-launch-mode/" rel="next" title="activity 启动模式">
-                <i class="fa fa-chevron-left"></i> activity 启动模式
+              <a href="/2018/06/04/android-interview/" rel="next" title="Android 面试题汇总">
+                <i class="fa fa-chevron-left"></i> Android 面试题汇总
               </a>
             
           </div>
@@ -570,10 +590,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/05/about-startActivityForResult/" rel="prev" title="关于 startActivityForResult">
-                关于 startActivityForResult <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -722,7 +738,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#阅读内容"><span class="nav-number">1.</span> <span class="nav-text">阅读内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于前言"><span class="nav-number">2.</span> <span class="nav-text">关于前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是机器学习"><span class="nav-number">3.</span> <span class="nav-text">什么是机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#聚类"><span class="nav-number">3.1.</span> <span class="nav-text">聚类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-number">3.2.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">3.3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#综合应用"><span class="nav-number">3.4.</span> <span class="nav-text">综合应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.5.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键字"><span class="nav-number">3.6.</span> <span class="nav-text">关键字</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC"><span class="nav-number">1.</span> <span class="nav-text">MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-中的-MVC"><span class="nav-number">1.1.</span> <span class="nav-text">Android 中的 MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应该如何在-Android-中应用-MVC"><span class="nav-number">1.2.</span> <span class="nav-text">应该如何在 Android 中应用 MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">1.3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number">1.4.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MVP"><span class="nav-number">2.</span> <span class="nav-text">MVP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">3.1.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View"><span class="nav-number">3.2.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Presenter"><span class="nav-number">3.3.</span> <span class="nav-text">Presenter</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优点-1"><span class="nav-number">4.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缺点-1"><span class="nav-number">5.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MVVM"><span class="nav-number">6.</span> <span class="nav-text">MVVM</span></a></li></ol></div>
             
 
           </div>
