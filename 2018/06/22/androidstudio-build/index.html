@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -105,15 +105,20 @@
 
 
 
-<meta name="description" content="时间考验一切，经得起时间考验的就为人所信仰">
-<meta property="og:type" content="website">
-<meta property="og:title" content="姚陆浩的博客">
-<meta property="og:url" content="http://yoursite.com/categories/总结/index.html">
+<meta name="description" content="文章来源：AndroidStudio Build过程解析 AndroidStudio 点击 build 按钮后，AndroidStudio 就会编译整个项目，并将 apk 安装到手机上，这个过程就是 Android 工程编译打包过程。主要的流程是  编译 DEX 打包 签名  APK 构建概述下图是谷歌官方给出的一个典型的 APK 构建过程。">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AndroidStudio build 过程">
+<meta property="og:url" content="http://yoursite.com/2018/06/22/androidstudio-build/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta property="og:description" content="文章来源：AndroidStudio Build过程解析 AndroidStudio 点击 build 按钮后，AndroidStudio 就会编译整个项目，并将 apk 安装到手机上，这个过程就是 Android 工程编译打包过程。主要的流程是  编译 DEX 打包 签名  APK 构建概述下图是谷歌官方给出的一个典型的 APK 构建过程。">
+<meta property="og:image" content="http://otqmfc4ah.bkt.clouddn.com/%E5%85%B8%E5%9E%8B%20APK%20%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B.png">
+<meta property="og:image" content="http://otqmfc4ah.bkt.clouddn.com/Android%20APK%E6%9E%84%E5%BB%BA%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4.png">
+<meta property="og:updated_time" content="2018-06-22T09:05:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="姚陆浩的博客">
-<meta name="twitter:description" content="时间考验一切，经得起时间考验的就为人所信仰">
+<meta name="twitter:title" content="AndroidStudio build 过程">
+<meta name="twitter:description" content="文章来源：AndroidStudio Build过程解析 AndroidStudio 点击 build 按钮后，AndroidStudio 就会编译整个项目，并将 apk 安装到手机上，这个过程就是 Android 工程编译打包过程。主要的流程是  编译 DEX 打包 签名  APK 构建概述下图是谷歌官方给出的一个典型的 APK 构建过程。">
+<meta name="twitter:image" content="http://otqmfc4ah.bkt.clouddn.com/%E5%85%B8%E5%9E%8B%20APK%20%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B.png">
 
 
 
@@ -143,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/22/androidstudio-build/"/>
 
 
 
 
 
-  <title>分类: 总结 | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>AndroidStudio build 过程 | 姚陆浩的博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -168,7 +173,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -320,55 +325,326 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>总结<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/androidstudio-build/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/12/29/2017-final-summary/" itemprop="url">
-              
-                <span itemprop="name">2017 年终总结</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">AndroidStudio build 过程</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-29T09:55:13+08:00"
-              content="2017-12-29" >
-          12-29
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T17:05:29+08:00">
+                2018-06-22
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/22/androidstudio-build/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/22/androidstudio-build/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/06/22/androidstudio-build/" class="leancloud_visitors" data-flag-title="AndroidStudio build 过程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>文章来源：<a href="https://www.jianshu.com/p/e86aadcb19e0" target="_blank" rel="external">AndroidStudio Build过程解析</a></p>
+<p>AndroidStudio 点击 build 按钮后，AndroidStudio 就会编译整个项目，并将 apk 安装到手机上，这个过程就是 Android 工程编译打包过程。主要的流程是</p>
+<ol>
+<li>编译</li>
+<li>DEX</li>
+<li>打包</li>
+<li>签名</li>
+</ol>
+<h1 id="APK-构建概述"><a href="#APK-构建概述" class="headerlink" title="APK 构建概述"></a>APK 构建概述</h1><p>下图是谷歌官方给出的一个典型的 APK 构建过程。</p>
+<p><img src="http://otqmfc4ah.bkt.clouddn.com/%E5%85%B8%E5%9E%8B%20APK%20%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B.png" alt="典型 APK 构建过程"></p>
+<a id="more"></a>
+<p>主要有两个过程：</p>
+<ul>
+<li>编译过程<ul>
+<li>输入是本工程的文件以及依赖的各种库文件</li>
+<li>输出是 dex 文件和编译后的资源文件</li>
+</ul>
+</li>
+<li>打包过程<ul>
+<li>配合 Keystore 对上述的输出进行签名对齐，生成最终的 apk 文件。</li>
+</ul>
+</li>
+</ul>
+<h1 id="APK-构建步骤详解"><a href="#APK-构建步骤详解" class="headerlink" title="APK 构建步骤详解"></a>APK 构建步骤详解</h1><p>Android APK 构建的详细步骤如下图所示。</p>
+<p><img src="http://otqmfc4ah.bkt.clouddn.com/Android%20APK%E6%9E%84%E5%BB%BA%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4.png" alt="Android APK构建的详细步骤"></p>
+<ol>
+<li>打包资源文件，生成 R.java 文件<ul>
+<li>输入：<ol>
+<li>Resource 文件（即工程 res 中的文件）</li>
+<li>Assets 文件（即工程 assets 中的文件）</li>
+<li>AndroidMainfest.xml 文件</li>
+<li>Android 基本类库（Android.jar 文件）</li>
+</ol>
+</li>
+<li>输入：<ol>
+<li>R.java 文件（在 model 工程的 build/generated 目录）</li>
+<li>打包好的资源</li>
+</ol>
+</li>
+<li>工具：appt 工具</li>
+</ul>
+</li>
+<li>处理 AIDL 文件 (没有可以省略)，生成对应的 .java 文件<ul>
+<li>输入：源码文件、aidl 文件、framework.aidl 文件</li>
+<li>输出：对应的 .java 文件</li>
+<li>工具：aidl 工具</li>
+</ul>
+</li>
+<li>编译 Java 文件，生成对应的 .class 文件<ul>
+<li>输入：<ol>
+<li>源码文件（包括第 1 步的 R.java 和第 2 步 AIDL 生成的 .java 文件）</li>
+<li>库文件（.jar 文件）</li>
+</ol>
+</li>
+<li>输出：对应的 .class 文件</li>
+<li>工具：javac 工具</li>
+</ul>
+</li>
+<li>把 .class 文件转化成 Davik VM 支持的 .dex 文件<ul>
+<li>输入：<ol>
+<li>第 3 步生成的 .class 文件（包括 AIDL、R.java、源代码生成的 .class 文件）</li>
+<li>库文件（.jar 文件）</li>
+</ol>
+</li>
+<li>输出：对应的 .dex 文件</li>
+<li>工具：javac 工具</li>
+</ul>
+</li>
+<li>打包生成为签名的 .apk 文件<ul>
+<li>输入：<ol>
+<li>打包后的资源文件（包括本地和第三方库里的）</li>
+<li>打包后的 .dex 文件</li>
+<li>libs 文件（包括 .so 文件，如果涉及 C/C++ 开发的话）</li>
+</ol>
+</li>
+<li>输出：未签名的 .apk 文件</li>
+<li>工具：apkbuilder 工具</li>
+</ul>
+</li>
+<li>对未签名 .apk 文件进行签名<ul>
+<li>输入：未签名的 .apk 文件</li>
+<li>输出：签名的 .apk 文件</li>
+<li>工具：jarsigner 工具</li>
+</ul>
+</li>
+<li>对签名后 .apk 文件进行对齐处理<ul>
+<li>输入：签名的 .apk 文件</li>
+<li>输出：对齐后的 .apk 文件</li>
+<li>工具：zipalign 工具</li>
+</ul>
+</li>
+</ol>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ol>
+<li><p>整个过程可以通过命令行 <code>./gradlew assembleRelease --info</code> 执行的 Task 看到。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">Tasks to be executed: [task &apos;:app:preBuild&apos;, </div><div class="line">task &apos;:app:preReleaseBuild&apos;, </div><div class="line">task &apos;:app:compileReleaseAidl&apos;, </div><div class="line">task &apos;:app:compileReleaseRenderscript&apos;, </div><div class="line">task &apos;:app:checkReleaseManifest&apos;, </div><div class="line">task &apos;:app:generateReleaseBuildConfig&apos;, </div><div class="line">task &apos;:app:prepareLintJar&apos;, </div><div class="line">task &apos;:app:generateReleaseResValues&apos;, </div><div class="line">task &apos;:app:generateReleaseResources&apos;, </div><div class="line">task &apos;:app:mergeReleaseResources&apos;, </div><div class="line">task &apos;:app:createReleaseCompatibleScreenManifests&apos;, </div><div class="line">task &apos;:app:processReleaseManifest&apos;, </div><div class="line">task &apos;:app:splitsDiscoveryTaskRelease&apos;, </div><div class="line">task &apos;:app:processReleaseResources&apos;, </div><div class="line">task &apos;:app:generateReleaseSources&apos;, </div><div class="line">task &apos;:app:javaPreCompileRelease&apos;, </div><div class="line">task &apos;:app:compileReleaseJavaWithJavac&apos;, </div><div class="line">task &apos;:app:compileReleaseNdk&apos;, </div><div class="line">task &apos;:app:compileReleaseSources&apos;, </div><div class="line">task &apos;:app:mergeReleaseShaders&apos;, </div><div class="line">task &apos;:app:compileReleaseShaders&apos;, </div><div class="line">task &apos;:app:generateReleaseAssets&apos;, </div><div class="line">task &apos;:app:mergeReleaseAssets&apos;, </div><div class="line">task &apos;:app:transformClassesWithPreDexForRelease&apos;, </div><div class="line">task &apos;:app:transformDexWithDexForRelease&apos;,</div><div class="line">task &apos;:app:mergeReleaseJniLibFolders&apos;, </div><div class="line">task &apos;:app:transformNativeLibsWithMergeJniLibsForRelease&apos;, </div><div class="line">task &apos;:app:transformNativeLibsWithStripDebugSymbolForRelease&apos;, </div><div class="line">task &apos;:app:processReleaseJavaRes&apos;, </div><div class="line">task &apos;:app:transformResourcesWithMergeJavaResForRelease&apos;, </div><div class="line">task &apos;:app:packageRelease&apos;, </div><div class="line">task &apos;:app:lintVitalRelease&apos;, </div><div class="line">task &apos;:app:assembleRelease&apos;]</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过<a href="https://blog.csdn.net/guolin_blog/article/details/49738023" target="_blank" rel="external">反编译 APK 文件</a>，可以间接看到打包流程和 APK 的组成文件</p>
+<ul>
+<li>反编译主要过程<ol>
+<li>将 apk 解压（可以变成 zip 压缩文件在解压）</li>
+<li>找到 class.dex 文件，用 dex2jar 工具，将 dex 文件转成 jar 文件，命令 d2j-dex2jar classes.dex</li>
+<li>用 jd-gui 工具，将 jar 文件转换成 Java 代码</li>
+<li>用 apktool 这个工具用于最大幅度地还原 APK 文件中的 9-patch 图片、布局、字符串等等一系列的资源。命令 apktool d xxx.apk</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/path/to/wechat-reward-image.png" alt="bleedyao 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/path/to/alipay-reward-image.png" alt="bleedyao 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/05/mvc-mvp-and-mvvm/" rel="next" title="MVC、MVP和MVVM">
+                <i class="fa fa-chevron-left"></i> MVC、MVP和MVVM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -376,6 +652,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -396,8 +679,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -471,6 +763,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#APK-构建概述"><span class="nav-number">1.</span> <span class="nav-text">APK 构建概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#APK-构建步骤详解"><span class="nav-number">2.</span> <span class="nav-text">APK 构建步骤详解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -645,6 +953,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
