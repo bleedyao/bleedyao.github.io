@@ -105,17 +105,17 @@
 
 
 
-<meta name="description" content="前言本篇文章为面试题总结，文中出现的知识可能比较零散，读者可以通过目录选择性阅读。 由于作者水平有限，难免会有疏漏的地方，如果您发现了不正确的地方，可以发送邮件（yaoluhao@sina.com）于我，收到邮件后，我会及时处理问题。 愿您能不吝赐教，吾定当感激涕零。 AndroidAndroid 横竖屏切换时 Activity 的生命周期默认情况下，Activity 就会被销毁并且重新创建；另外">
+<meta name="description" content="前言本篇文章为面试题总结，文中出现的知识可能比较零散，读者可以通过目录选择性阅读。 由于作者水平有限，难免会有疏漏的地方，如果您发现了不正确的地方，可以发送邮件（yaoluhao@sina.com）于我，收到邮件后，我会及时处理问题。 愿您能不吝赐教，吾定当感激涕零。 Android 横竖屏切换时 Activity 的生命周期默认情况下，Activity 就会被销毁并且重新创建；另外，可以通过配置">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 面试题汇总">
 <meta property="og:url" content="http://yoursite.com/2018/06/04/android-interview/index.html">
 <meta property="og:site_name" content="姚陆浩的博客">
-<meta property="og:description" content="前言本篇文章为面试题总结，文中出现的知识可能比较零散，读者可以通过目录选择性阅读。 由于作者水平有限，难免会有疏漏的地方，如果您发现了不正确的地方，可以发送邮件（yaoluhao@sina.com）于我，收到邮件后，我会及时处理问题。 愿您能不吝赐教，吾定当感激涕零。 AndroidAndroid 横竖屏切换时 Activity 的生命周期默认情况下，Activity 就会被销毁并且重新创建；另外">
-<meta property="og:updated_time" content="2018-06-04T01:55:25.000Z">
+<meta property="og:description" content="前言本篇文章为面试题总结，文中出现的知识可能比较零散，读者可以通过目录选择性阅读。 由于作者水平有限，难免会有疏漏的地方，如果您发现了不正确的地方，可以发送邮件（yaoluhao@sina.com）于我，收到邮件后，我会及时处理问题。 愿您能不吝赐教，吾定当感激涕零。 Android 横竖屏切换时 Activity 的生命周期默认情况下，Activity 就会被销毁并且重新创建；另外，可以通过配置">
+<meta property="og:updated_time" content="2018-06-26T01:55:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 面试题汇总">
-<meta name="twitter:description" content="前言本篇文章为面试题总结，文中出现的知识可能比较零散，读者可以通过目录选择性阅读。 由于作者水平有限，难免会有疏漏的地方，如果您发现了不正确的地方，可以发送邮件（yaoluhao@sina.com）于我，收到邮件后，我会及时处理问题。 愿您能不吝赐教，吾定当感激涕零。 AndroidAndroid 横竖屏切换时 Activity 的生命周期默认情况下，Activity 就会被销毁并且重新创建；另外">
+<meta name="twitter:description" content="前言本篇文章为面试题总结，文中出现的知识可能比较零散，读者可以通过目录选择性阅读。 由于作者水平有限，难免会有疏漏的地方，如果您发现了不正确的地方，可以发送邮件（yaoluhao@sina.com）于我，收到邮件后，我会及时处理问题。 愿您能不吝赐教，吾定当感激涕零。 Android 横竖屏切换时 Activity 的生命周期默认情况下，Activity 就会被销毁并且重新创建；另外，可以通过配置">
 
 
 
@@ -449,7 +449,7 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇文章为面试题总结，文中出现的知识可能比较零散，读者可以通过目录选择性阅读。</p>
 <p>由于作者水平有限，难免会有疏漏的地方，如果您发现了不正确的地方，可以发送邮件（yaoluhao@sina.com）于我，收到邮件后，我会及时处理问题。</p>
 <p>愿您能不吝赐教，吾定当感激涕零。</p>
-<h1 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h1><h2 id="Android-横竖屏切换时-Activity-的生命周期"><a href="#Android-横竖屏切换时-Activity-的生命周期" class="headerlink" title="Android 横竖屏切换时 Activity 的生命周期"></a>Android 横竖屏切换时 Activity 的生命周期</h2><p>默认情况下，Activity 就会被销毁并且重新创建；另外，可以通过配置参数阻止系统重新创建 Activity。</p>
+<h1 id="Android-横竖屏切换时-Activity-的生命周期"><a href="#Android-横竖屏切换时-Activity-的生命周期" class="headerlink" title="Android 横竖屏切换时 Activity 的生命周期"></a>Android 横竖屏切换时 Activity 的生命周期</h1><p>默认情况下，Activity 就会被销毁并且重新创建；另外，可以通过配置参数阻止系统重新创建 Activity。</p>
 <p>横竖屏切换，系统配置发生改变，Activity 会被销毁并重新创建。</p>
 <ul>
 <li>销毁时<ul>
@@ -469,7 +469,7 @@
 <p>关于保存和恢复 View 层次结构，系统的工作流程如下：首先 Activity 被意外终止时，Activity 会调用 onSaveInstanceState 去保存数据，然后 Activity 会委托 Window 去保存数据，接着 Window 在委托它上面的顶层容器去保存数据。顶层容器是一个 ViewGroup，一般来说它很可能是 DecorView。最后顶层容器去保存数据再去一一通知它的子元素来保存数据，这样完成了整个数据保存过程，这是一种典型的委托思想，还有比如 View 的绘制过程、事件分发等都是采用类似的思想。</p>
 <p>关于接收位置：可以选择 onRestoreInstanceState 或者 onCreate，二者的区别是：onRestoreInstanceState 一旦被调用，其参数<code>Bundle savedInstanceState</code> 一定有值，不需要额外地非空判断；但 onCreate 正常启动时，<code>Bundle savedInstanceState</code> 为 null，所以必须额外判断。官方建议采用 onRestoreInstanceState 去恢复数据。</p>
 <p>配置 configChanges 属性可以阻止 Activity 屏幕旋转时重新创建，只需要添加 orientation 这个值即可。configChanges 属性值有很多，其中比较常用的值有 locale、orientation 和 keyboardHidden。在众多的值当中，比较特殊的是 screenSize 和 smallestScreenSize，他们在 minSDKVersion 和 targetSDKVersion 有一个大于 13 时，会导致旋转屏幕事 Activity 重启，所以除了 orientation，还需要加上 screenSize</p>
-<h2 id="Activity-的启动过程"><a href="#Activity-的启动过程" class="headerlink" title="Activity 的启动过程"></a>Activity 的启动过程</h2><p>Activity 的启动偶成可以从 context 的 StartActivity 说起，其实现是 contextImpl 的 startActivity，其内部通过 Instrumtation 来尝试启动 Activity，这是跨进程过程，它会调用 AMS (ActivityManagerService) 的 startActivity 方法，当 Activity 校验完 Activity 的合法性后，会通过 ApplicationThread 回调到我们的进程，这也是一次跨进程过程，而 ApplicationThread 就是一个 Binder。回调逻辑是在 Binder 线程池中完成，所以需要通过调用 Handler  切回 UI 线程，在 LAUNCH_ACTIVITY 中对应着 handleLaunchActiviy，在这个方法里完成了 Activity 创建和启动。在 Activity 的 onResume 中，Activity 的内容将开始渲染到 Window 上面，然后开始绘制知道我们可以看到。</p>
+<h1 id="Activity-的启动过程"><a href="#Activity-的启动过程" class="headerlink" title="Activity 的启动过程"></a>Activity 的启动过程</h1><p>Activity 的启动偶成可以从 context 的 StartActivity 说起，其实现是 contextImpl 的 startActivity，其内部通过 Instrumtation 来尝试启动 Activity，这是跨进程过程，它会调用 AMS (ActivityManagerService) 的 startActivity 方法，当 Activity 校验完 Activity 的合法性后，会通过 ApplicationThread 回调到我们的进程，这也是一次跨进程过程，而 ApplicationThread 就是一个 Binder。回调逻辑是在 Binder 线程池中完成，所以需要通过调用 Handler  切回 UI 线程，在 LAUNCH_ACTIVITY 中对应着 handleLaunchActiviy，在这个方法里完成了 Activity 创建和启动。在 Activity 的 onResume 中，Activity 的内容将开始渲染到 Window 上面，然后开始绘制知道我们可以看到。</p>
 
       
     </div>
@@ -690,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android"><span class="nav-number">2.</span> <span class="nav-text">Android</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-横竖屏切换时-Activity-的生命周期"><span class="nav-number">2.1.</span> <span class="nav-text">Android 横竖屏切换时 Activity 的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-的启动过程"><span class="nav-number">2.2.</span> <span class="nav-text">Activity 的启动过程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-横竖屏切换时-Activity-的生命周期"><span class="nav-number">2.</span> <span class="nav-text">Android 横竖屏切换时 Activity 的生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Activity-的启动过程"><span class="nav-number">3.</span> <span class="nav-text">Activity 的启动过程</span></a></li></ol></div>
             
 
           </div>
