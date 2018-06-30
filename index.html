@@ -335,6 +335,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/30/handle-big-bitmap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bleedyao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="姚陆浩的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/30/handle-big-bitmap/" itemprop="url">大尺寸图片加载</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-30T08:53:48+08:00">
+                2018-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/bitmap/" itemprop="url" rel="index">
+                    <span itemprop="name">Bitmap</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/30/handle-big-bitmap/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/30/handle-big-bitmap/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/06/30/handle-big-bitmap/" class="leancloud_visitors" data-flag-title="大尺寸图片加载">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>通常情况下，图片的原始尺寸要比 ImageView 尺寸大，这时候把整张图片加载进 ImageView 会造成内存内存浪费，甚至造成 OOM (Out Of Memory Killer)。</p>
+<p>在 Android App 中，为什么加载位图（Bitmap）是很棘手，是有很多原因的：</p>
+<ul>
+<li>Bitmap 可以很轻松的消耗 App 的内存预算（Android 分配给每个 APP 的最大内存）。例如，Pixel 手机上的相机可拍摄高达 4048x3036 像素（1200万像素）如果 bitmap 配置使用 ARGB_8888（每个像素占 4 字节）—— Android 2.3（API 9 版本）及以上版本的默认值，将这张照片加载到内存中需要大约48MB 的内存(4048 * 3036 * 4 字节)。如此大的内存能够立即耗尽 App 可用的所有的内存。</li>
+<li>在 UI 线程中加载 bitmap 会降低你的 App 的性能，引发响应缓慢甚至发生 ANR (Application Not Responding) 的信息。因此，在使用 bitmap 时适当的管理线程是非常重要的。</li>
+<li>如果你的 App 正在加载多张 bitmap 到内存中，你需要熟练的管理内存和磁盘缓存。否则，你的 App 可能要忍受响应性和滑动性差的体验</li>
+</ul>
+<p>多数情况下，我们推荐你在 App 中，使用 <a href="https://github.com/bumptech/glide" target="_blank" rel="external">Glide</a> 框架获得，解析展示 bitmap。在 Android中，Glide 抽象出来很多复杂的 bitmap 和其他图像和其他任务的相关工作。</p>
+<p>然而，在使用开源框架的同时，我们仍然要明白一个像 Glide 这样优秀的框架要做哪些事情。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/30/handle-big-bitmap/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/androidstudio-build/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -391,6 +577,17 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/android/" itemprop="url" rel="index">
                     <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/build/" itemprop="url" rel="index">
+                    <span itemprop="name">build</span>
                   </a>
                 </span>
 
@@ -1947,187 +2144,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/classloader-in-android/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bleedyao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="姚陆浩的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/14/classloader-in-android/" itemprop="url">Android中的ClassLoader</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-14T16:29:56+08:00">
-                2018-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/classloader/" itemprop="url" rel="index">
-                    <span itemprop="name">classloader</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/14/classloader-in-android/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/14/classloader-in-android/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/03/14/classloader-in-android/" class="leancloud_visitors" data-flag-title="Android中的ClassLoader">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Android中有哪几种ClassLoader？它们的作用和区别是什么？"><a href="#Android中有哪几种ClassLoader？它们的作用和区别是什么？" class="headerlink" title="Android中有哪几种ClassLoader？它们的作用和区别是什么？"></a>Android中有哪几种ClassLoader？它们的作用和区别是什么？</h1><p>Android 中的 ClassLoader 工作交给了 BaseDexClassLoader 来处理。</p>
-<h2 id="BaseDexClassLoader-及其子类"><a href="#BaseDexClassLoader-及其子类" class="headerlink" title="BaseDexClassLoader 及其子类"></a>BaseDexClassLoader 及其子类</h2><p>ClassLoader 是个抽象类，其直接子类有 BaseDexClassLoader 和 SecureClassLoader。</p>
-<p>SecureClassLoader 的子类是 URLClassLoader，其只能用来加载 jar 文件，这在 Android 的 Dalvik/ART 上没法使用的。</p>
-<p>BaseDexClassLoader 的子类是 PathClassLoader，DexClassLoader 和 InMemoryDexClassLoader。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/14/classloader-in-android/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2182,7 +2198,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2193,7 +2209,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
