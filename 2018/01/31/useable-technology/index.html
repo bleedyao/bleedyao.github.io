@@ -449,14 +449,14 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在实际工作中，往往会用到一些工具或者是命令，然而过一段时间可能会忘掉，需要再次查找，反复这样去做会浪费很多时间，因此本篇文章的目的就是将这些工具或命令收集在一起，为的就是节省宝贵的时间，过更美好的生活。</p>
 <p>注：本篇文章主要目的在于收集工具和命令集，对于原理性的知识不会过多涉及。文章会持续更新，更新方式是在现有文章的基础上继续添加。</p>
 <p>如果能给读者些许帮助，此乃吾之荣幸，吾当再接再厉，让读者获得更多帮助。</p>
-<h1 id="开发技巧"><a href="#开发技巧" class="headerlink" title="开发技巧"></a>开发技巧</h1><h2 id="获取-Android-设备任务栈信息"><a href="#获取-Android-设备任务栈信息" class="headerlink" title="获取 Android 设备任务栈信息"></a>获取 Android 设备任务栈信息</h2><p>命令：adb shell dumpsys activity | grep run</p>
+<h1 id="获取-Android-设备任务栈信息"><a href="#获取-Android-设备任务栈信息" class="headerlink" title="获取 Android 设备任务栈信息"></a>获取 Android 设备任务栈信息</h1><p>命令：adb shell dumpsys activity | grep run</p>
 <a id="more"></a>
 <p>参考环境：具备 adb 命令的全局环境。您可以在 <code>android_sdk/platform-tools/</code> 中找到 <code>adb</code> 工具。</p>
-<h2 id="开启-MongoDB-数据库"><a href="#开启-MongoDB-数据库" class="headerlink" title="开启 MongoDB 数据库"></a>开启 MongoDB 数据库</h2><p>命令：sudo mongod</p>
+<h1 id="开启-MongoDB-数据库"><a href="#开启-MongoDB-数据库" class="headerlink" title="开启 MongoDB 数据库"></a>开启 MongoDB 数据库</h1><p>命令：sudo mongod</p>
 <p>参考环境：mac 系统</p>
-<h2 id="mac-查看目录层级"><a href="#mac-查看目录层级" class="headerlink" title="mac 查看目录层级"></a>mac 查看目录层级</h2><p>命令：tree -L 2</p>
+<h1 id="mac-查看目录层级"><a href="#mac-查看目录层级" class="headerlink" title="mac 查看目录层级"></a>mac 查看目录层级</h1><p>命令：tree -L 2</p>
 <p>参考环境：需要安装 brew install tree</p>
-<h2 id="查看-Android-设备用电详情（图形化）"><a href="#查看-Android-设备用电详情（图形化）" class="headerlink" title="查看 Android 设备用电详情（图形化）"></a>查看 Android 设备用电详情（图形化）</h2><ol>
+<h1 id="查看-Android-设备用电详情（图形化）"><a href="#查看-Android-设备用电详情（图形化）" class="headerlink" title="查看 Android 设备用电详情（图形化）"></a>查看 Android 设备用电详情（图形化）</h1><ol>
 <li>adb kill-server</li>
 <li>adb device</li>
 <li>adb shell dumpsys batterystats —reset（重置电池状态信息）</li>
@@ -467,6 +467,14 @@
 <p>参考环境：adb 命令，真实 Android 手机，python2 环境，科学上网，historian.py 文件，可以在 <a href="https://github.com/google/battery-historian" target="_blank" rel="external">battery-historian</a> 里面找到。</p>
 <h1 id="Android-Studio-捕获异常快捷键"><a href="#Android-Studio-捕获异常快捷键" class="headerlink" title="Android Studio 捕获异常快捷键"></a>Android Studio 捕获异常快捷键</h1><p>Mac：<code>command + option + t</code>（默认）</p>
 <p>windows：<code>ctrl + alt + t</code></p>
+<p>参考环境：Android studio 界面下</p>
+<h1 id="Android-视频录制命令"><a href="#Android-视频录制命令" class="headerlink" title="Android 视频录制命令"></a>Android 视频录制命令</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell screenrecord /sdcard/demo.mp4</div></pre></td></tr></table></figure>
+<p>默认录制时间 180 s</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell screenrecord  --time-limit 10 /sdcard/demo.mp4</div></pre></td></tr></table></figure>
+<p>录制时间 10 s</p>
+<h1 id="Android-查询单个-App-最大内存"><a href="#Android-查询单个-App-最大内存" class="headerlink" title="Android 查询单个 App 最大内存"></a>Android 查询单个 App 最大内存</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell getprop | grep dalvik.vm.heapsize</div></pre></td></tr></table></figure>
+<p>App 内存使用情况概览：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb shell dumpsys meminfo 包名</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -622,7 +630,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -687,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发技巧"><span class="nav-number">2.</span> <span class="nav-text">开发技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-Android-设备任务栈信息"><span class="nav-number">2.1.</span> <span class="nav-text">获取 Android 设备任务栈信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启-MongoDB-数据库"><span class="nav-number">2.2.</span> <span class="nav-text">开启 MongoDB 数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mac-查看目录层级"><span class="nav-number">2.3.</span> <span class="nav-text">mac 查看目录层级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看-Android-设备用电详情（图形化）"><span class="nav-number">2.4.</span> <span class="nav-text">查看 Android 设备用电详情（图形化）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Studio-捕获异常快捷键"><span class="nav-number">3.</span> <span class="nav-text">Android Studio 捕获异常快捷键</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取-Android-设备任务栈信息"><span class="nav-number">2.</span> <span class="nav-text">获取 Android 设备任务栈信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开启-MongoDB-数据库"><span class="nav-number">3.</span> <span class="nav-text">开启 MongoDB 数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mac-查看目录层级"><span class="nav-number">4.</span> <span class="nav-text">mac 查看目录层级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看-Android-设备用电详情（图形化）"><span class="nav-number">5.</span> <span class="nav-text">查看 Android 设备用电详情（图形化）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Studio-捕获异常快捷键"><span class="nav-number">6.</span> <span class="nav-text">Android Studio 捕获异常快捷键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-视频录制命令"><span class="nav-number">7.</span> <span class="nav-text">Android 视频录制命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-查询单个-App-最大内存"><span class="nav-number">8.</span> <span class="nav-text">Android 查询单个 App 最大内存</span></a></li></ol></div>
             
 
           </div>
